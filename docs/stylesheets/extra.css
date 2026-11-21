@@ -2,3 +2,11 @@
 :root {
   --md-primary-fg-color: #176b62;
 }
+
+/* Keep documentation headings and their table of contents unnumbered.
+   The shared Prodockit stylesheet supplies counters independently of the
+   heading_numbering setting when no custom template consumes that setting. */
+.md-typeset :is(h1, h2, h3, h4, h5, h6)::before,
+.md-nav--secondary .md-nav__link .md-ellipsis::before {
+  content: none;
+}

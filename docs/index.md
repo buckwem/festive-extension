@@ -1,6 +1,6 @@
 # Festive Overlay
 
-Festive Overlay brings Prodockit's Christmas and New Year decorations to
+Festive Overlay brings [Prodockit](https://prodockit.org/)'s Christmas and New Year decorations to
 Joomla public pages. It includes snow, Father Christmas's sleigh carrying
 walking boots with bows, fireworks and drone displays.
 
