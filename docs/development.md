@@ -2,13 +2,14 @@
 
 ## Set up
 
-Install Python 3.13 and PHP 8.3 or later, then run these commands from the
+Install Python 3.13, Node.js 22 or later and PHP 8.3 or later, then run these commands from the
 repository root:
 
 ```sh
 make setup
 make check
 make lint-php
+make test
 make package
 make docs
 ```
@@ -40,17 +41,73 @@ The service provider passes a dispatcher to the plugin constructor for Joomla
 5.4 compatibility. Joomla 6 still accepts that signature, although it deprecates
 it ahead of Joomla 7. Revisit it when changing the supported Joomla versions.
 
+## Port from Prodockit
+
+The browser runtime was extracted from Prodockit 0.81.0 at commit
+`5b2f762ea92689df0771be54cd558cbcd31457fb`. The Joomla version reads script
+options rather than documentation metadata and does not use Material/Zensical
+header, navigation or palette hooks. Its CSS is scoped to `festive-overlay-*`.
+The image and runtime are shipped locally without a runtime CDN dependency.
+
+Visitor pause/hide preferences use `festive-overlay:preferences` in local
+storage, with storage failures tolerated. Sound is never persisted. Duplicate
+script loading reuses one controller. Effect disposal removes listeners,
+timers, canvas and controls. Controls are inserted above the Our Next Walks
+heading where available, or placed in a fixed corner.
+
+Palette detection observes theme attributes on the HTML and body elements, so
+paused effects also update when a visitor changes themes. The separate Alton
+dark-mode prototype was checked with snow and fireworks, smaller controls,
+navigation, pause/resume and theme switching on desktop and mobile. Its CSS and
+light/dark switch are not included in this plugin.
+
+Keep the managed documentation assets unchanged. The ported runtime in
+`extension/media/` is maintained separately; upstream changes need review and
+behaviour checks before being applied. The installable ZIP includes the MIT
+and CC0 attribution in `THIRD_PARTY_NOTICES.txt`.
+
+## Local Alton Ramblers preview
+
+```sh
+make preview-mirror
+make preview-serve
+```
+
+The mirror follows public menu and article links, with a 500-page safeguard.
+It currently copies 162 public pages and their assets into ignored `.local-site/`.
+Open `/local-pages.html` on the local server for a complete page index. It injects the extension's options and media
+for visual testing. It blocks live API requests, embeds and form submissions,
+except for the original WeatherWidget.io forecast, which needs an internet connection.
+It does not include the Joomla database or an administrator session. Dynamic
+walk/map functions therefore need a separate Joomla staging environment.
+
+Use the [preview parameters](configuration.md#local-previews) to exercise
+Christmas and New Year. After editing extension media, copy it into the mirror
+or rebuild the mirror, then reload the browser. Screenshots belong in ignored
+`.test-output/`, outside the extension archive and public source history.
+
+On 21 November 2026 the source site's administrator displayed Joomla 5.4.10,
+and the public pages used Gantry 5 Hydrogen. The initial local snapshot copied three
+pages and 140 assets. A subsequent correction cached extensionless Google Fonts
+stylesheets as CSS and downloaded the seven Assistant font files, preserving
+the public site’s typography. Two existing Font Awesome v4 compatibility font URLs
+returned 404; other downloaded fonts remained available. The initial browser
+checks covered desktop/mobile layout, navigation, snow pause/hide, saved
+preferences, artwork transparency and controls above the walks heading.
+
 ## Validation and release work
 
 `make check` verifies the manifest and declared inputs. `make lint-php` checks
-syntax. `make package` produces a ZIP with stable timestamps and file order.
+syntax. `make test` exercises the browser runtime in Node with DOM/canvas test
+doubles and PHP settings/guards with Joomla API test doubles. Neither is a
+substitute for installing the extension in Joomla. `make package` produces a ZIP with stable timestamps and file order.
 `make docs` checks managed assets and builds the documentation in strict mode.
 The GitHub Actions workflow runs these checks if the repository is hosted there.
 
 Before claiming a supported release, install, update and uninstall the package
 on each target Joomla version. Check public pages, administrator pages,
 subdirectory installations and non-HTML responses. Verify keyboard interaction,
-reduced motion and printing after adding any visual effects.
+reduced motion and printing with the installed plugin.
 
 Update the manifest version, `CHANGELOG.md` and the documentation together.
 Add focused behaviour tests as the extension gains functionality.

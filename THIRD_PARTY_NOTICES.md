@@ -26,3 +26,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Festive runtime and artwork
+
+The extension adapts Prodockit’s festive runtime at commit
+`5b2f762ea92689df0771be54cd558cbcd31457fb` under the MIT licence above.
+The drone deer surface samples derive from the [Quaternius Deer](https://poly.pizza/m/T6Cs7tmMHJ),
+released under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+These notices are included in the installable ZIP.
+
+The sleigh artwork was edited with the built-in image generation tool to
+replace presents with walking boots and add red and gold bows.
+See [the artwork record](design/sleigh.md).

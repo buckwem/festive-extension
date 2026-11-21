@@ -1,14 +1,89 @@
-/* Copyright (C) 2026 Mark Buckwell. Licence: GPL-2.0-or-later. */
-#festive-overlay {
+/* Adapted from Prodockit 0.81.0. Copyright (c) 2026 Mark Buckwell and contributors. */
+/* SPDX-License-Identifier: MIT */
+.festive-overlay-canvas {
   position: fixed;
   inset: 0;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 1000;
 }
-
-@media (prefers-reduced-motion: reduce), print {
-  #festive-overlay {
-    display: none;
-  }
+.festive-overlay-controls {
+  --festive-surface: #fff;
+  --festive-text: #12382e;
+  --festive-border: #55796b;
+  --festive-hover: #edf5f0;
+  position: fixed;
+  right: max(0.75rem, env(safe-area-inset-right));
+  bottom: max(0.75rem, env(safe-area-inset-bottom));
+  z-index: 1001;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  box-sizing: border-box;
+  max-width: min(26rem, calc(100vw - 1.5rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 0.4rem;
+  border: 1px solid var(--festive-border);
+  border-radius: 0.5rem;
+  color: var(--festive-text);
+  background: var(--festive-surface);
+  font: 14px/1.4 system-ui, sans-serif;
+  box-shadow: 0 2px 12px #0003;
+}
+.festive-overlay-controls[data-theme="dark"] {
+  --festive-surface: #202b25;
+  --festive-text: #e7ede8;
+  --festive-border: #718e79;
+  --festive-hover: #354b3e;
+  color-scheme: dark;
+}
+.festive-overlay-controls[data-position="bottom-left"] {
+  right: auto;
+  left: max(0.75rem, env(safe-area-inset-left));
+}
+.festive-overlay-controls[data-position="above-walks"] {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 0.65rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.festive-overlay-controls button,
+.festive-overlay-controls input,
+.festive-overlay-controls select {
+  box-sizing: border-box;
+  min-height: 44px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--festive-border);
+  border-radius: 0.3rem;
+  font: inherit;
+  color: inherit;
+  background: var(--festive-surface);
+  text-transform: none;
+  letter-spacing: normal;
+}
+.festive-overlay-controls button { min-width: 44px; cursor: pointer; border-color: transparent; background: transparent; }
+.festive-overlay-controls button:hover { background: var(--festive-hover); }
+.festive-overlay-controls input[type="range"] { width: 100px; padding: 0; }
+.festive-overlay-controls :focus-visible { outline: 3px solid #006cbe; outline-offset: 2px; }
+.festive-overlay-controls svg { display: block; width: 18px; height: 18px; margin: auto; }
+.festive-overlay-preview { flex-basis: 100%; }
+.festive-overlay-preview strong,
+.festive-overlay-preview output { display: block; }
+.festive-overlay-toggle { font-size: 18px !important; }
+.festive-overlay-toggle[aria-pressed="false"] { opacity: 0.65; }
+.festive-overlay-canvas[hidden], .festive-overlay-controls[hidden],
+.festive-overlay-controls [hidden] { display: none !important; }
+@media print {
+  .festive-overlay-canvas, .festive-overlay-controls { display: none !important; }
 }

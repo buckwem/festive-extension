@@ -5,17 +5,19 @@
     <creationDate>2026-11</creationDate>
     <copyright>Copyright (C) 2026 Mark Buckwell</copyright>
     <license>GNU General Public License version 2 or later</license>
-    <version>0.1.0-dev</version>
+    <version>0.1.0-beta1</version>
     <description>PLG_SYSTEM_FESTIVEOVERLAY_XML_DESCRIPTION</description>
     <namespace path="src">FestiveOverlay\Plugin\System\FestiveOverlay</namespace>
     <files>
         <folder plugin="festiveoverlay">services</folder>
         <folder>src</folder>
         <filename>LICENSE.txt</filename>
+        <filename>THIRD_PARTY_NOTICES.txt</filename>
     </files>
     <media destination="plg_system_festiveoverlay" folder="media">
         <folder>css</folder>
         <folder>js</folder>
+        <folder>images</folder>
     </media>
     <languages folder="language">
         <language tag="en-GB">en-GB/plg_system_festiveoverlay.ini</language>
@@ -30,6 +32,39 @@
                     description="PLG_SYSTEM_FESTIVEOVERLAY_FIELD_ENABLED_DESC">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
+                </field>
+                <field name="effect" type="list" default="auto" filter="cmd"
+                    label="PLG_SYSTEM_FESTIVEOVERLAY_EFFECT_LABEL" description="PLG_SYSTEM_FESTIVEOVERLAY_EFFECT_DESC">
+                    <option value="auto">PLG_SYSTEM_FESTIVEOVERLAY_EFFECT_AUTO</option>
+                    <option value="snow">PLG_SYSTEM_FESTIVEOVERLAY_EFFECT_SNOW</option>
+                    <option value="fireworks">PLG_SYSTEM_FESTIVEOVERLAY_EFFECT_FIREWORKS</option>
+                </field>
+                <field name="season_start" type="text" default="12-01" filter="string" maxlength="5"
+                    label="PLG_SYSTEM_FESTIVEOVERLAY_START_LABEL" description="PLG_SYSTEM_FESTIVEOVERLAY_DATES_DESC" />
+                <field name="season_end" type="text" default="01-06" filter="string" maxlength="5"
+                    label="PLG_SYSTEM_FESTIVEOVERLAY_END_LABEL" description="PLG_SYSTEM_FESTIVEOVERLAY_DATES_DESC" />
+                <field name="sleigh" type="radio" layout="joomla.form.field.radio.switcher" default="1" filter="integer"
+                    label="PLG_SYSTEM_FESTIVEOVERLAY_SLEIGH_LABEL">
+                    <option value="0">JNO</option><option value="1">JYES</option>
+                </field>
+                <field name="drone" type="radio" layout="joomla.form.field.radio.switcher" default="1" filter="integer"
+                    label="PLG_SYSTEM_FESTIVEOVERLAY_DRONE_LABEL">
+                    <option value="0">JNO</option><option value="1">JYES</option>
+                </field>
+                <field name="sound" type="radio" layout="joomla.form.field.radio.switcher" default="1" filter="integer"
+                    label="PLG_SYSTEM_FESTIVEOVERLAY_SOUND_LABEL" description="PLG_SYSTEM_FESTIVEOVERLAY_SOUND_DESC">
+                    <option value="0">JNO</option><option value="1">JYES</option>
+                </field>
+                <field name="palette" type="list" default="auto" filter="cmd" label="PLG_SYSTEM_FESTIVEOVERLAY_PALETTE_LABEL">
+                    <option value="auto">PLG_SYSTEM_FESTIVEOVERLAY_PALETTE_AUTO</option>
+                    <option value="light">PLG_SYSTEM_FESTIVEOVERLAY_PALETTE_LIGHT</option>
+                    <option value="dark">PLG_SYSTEM_FESTIVEOVERLAY_PALETTE_DARK</option>
+                </field>
+                <field name="position" type="list" default="above-walks" filter="cmd" label="PLG_SYSTEM_FESTIVEOVERLAY_POSITION_LABEL"
+                    description="PLG_SYSTEM_FESTIVEOVERLAY_POSITION_DESC">
+                    <option value="above-walks">PLG_SYSTEM_FESTIVEOVERLAY_POSITION_WALKS</option>
+                    <option value="bottom-right">PLG_SYSTEM_FESTIVEOVERLAY_POSITION_RIGHT</option>
+                    <option value="bottom-left">PLG_SYSTEM_FESTIVEOVERLAY_POSITION_LEFT</option>
                 </field>
             </fieldset>
         </fields>

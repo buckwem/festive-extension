@@ -1,20 +1,15 @@
 # Roadmap
 
-The repository and installation scaffold are ready for development. The
-following work is planned and hasn't been implemented.
+The beta implements the Prodockit Christmas and New Year effects, Joomla
+settings, accessible visitor controls and Alton Ramblers artwork.
 
-## First usable overlay
+Before a supported release:
 
-- Choose an initial effect and its appearance.
-- Provide visitor controls to pause or hide it.
-- Add administrator settings for appearance and optional date scheduling.
-- Set performance limits and verify behaviour on mobile devices.
+- Verify installation, updates and removal on real Joomla 5.4 and 6.x sites,
+  including a subdirectory installation and template caching.
+- Check the live walk modules and maps in a separate Joomla staging copy with
+  the site's database. The public front-end snapshot cannot exercise those APIs.
+- Choose documentation hosting and an extension update-distribution method.
 
-## Release preparation
-
-- Add behaviour tests for the chosen effect and settings.
-- Verify installation, updates and removal on Joomla 5.4 and 6.x.
-- Test accessibility, reduced motion and printing with the implemented effect.
-- Choose documentation hosting and an update-distribution method.
-
-The current scaffold doesn't commit the project to a particular effect design.
+A website-wide dark mode is separate template work. The overlay can choose
+contrasting snow for a dark page, but does not recolour the website itself.

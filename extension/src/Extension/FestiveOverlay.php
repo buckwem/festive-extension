@@ -37,6 +37,20 @@ final class FestiveOverlay extends CMSPlugin implements SubscriberInterface
         }
 
         $base = Uri::root(true) . '/media/plg_system_festiveoverlay/';
+        $effect = (string) $this->params->get('effect', 'auto');
+        $palette = (string) $this->params->get('palette', 'auto');
+        $position = (string) $this->params->get('position', 'above-walks');
+        $document->addScriptOptions('plg_system_festiveoverlay', [
+            'enabled' => true,
+            'effect' => in_array($effect, ['auto', 'snow', 'fireworks'], true) ? $effect : 'auto',
+            'season_start' => self::seasonDate((string) $this->params->get('season_start', '12-01'), '12-01'),
+            'season_end' => self::seasonDate((string) $this->params->get('season_end', '01-06'), '01-06'),
+            'sleigh' => (bool) $this->params->get('sleigh', 1),
+            'drone' => (bool) $this->params->get('drone', 1),
+            'sound' => (bool) $this->params->get('sound', 1),
+            'palette' => in_array($palette, ['auto', 'light', 'dark'], true) ? $palette : 'auto',
+            'position' => in_array($position, ['above-walks', 'bottom-left', 'bottom-right'], true) ? $position : 'above-walks',
+        ]);
         $assets = $document->getWebAssetManager();
         $assets->registerAndUseStyle(
             'plg_system_festiveoverlay.overlay',
@@ -47,7 +61,17 @@ final class FestiveOverlay extends CMSPlugin implements SubscriberInterface
             'plg_system_festiveoverlay.overlay',
             $base . 'js/overlay.js',
             ['version' => 'auto'],
-            ['defer' => true]
+            ['defer' => true],
+            ['core']
         );
+    }
+
+    private static function seasonDate(string $value, string $fallback): string
+    {
+        if (!preg_match('/^(\d{2})-(\d{2})$/D', $value, $parts)) {
+            return $fallback;
+        }
+
+        return checkdate((int) $parts[1], (int) $parts[2], 2000) ? $value : $fallback;
     }
 }

@@ -1,19 +1,29 @@
 # Festive Overlay
 
-Festive Overlay is a Joomla system plugin project for seasonal decorations on
-public pages. This documentation covers the initial development scaffold.
+Festive Overlay brings Prodockit's Christmas and New Year decorations to
+Joomla public pages. It includes snow, Father Christmas's sleigh carrying
+walking boots with bows, fireworks and drone displays.
 
-!!! info "Development status"
-    Version **0.1.0-dev** includes the installer manifest, asset loader and an
-    empty decorative layer. It doesn't display a festive effect yet.
+!!! info "Beta status"
+    Version **0.1.0-beta1** has been checked against a local front-end copy of
+    Alton Ramblers. Installation, update and removal on real Joomla 5.4 and
+    6.x installations still need verification before a supported release.
 
-Start with [installation](installation.md) to build and install the ZIP on a
-development site. [Configuration](configuration.md) explains the available
-setting. Contributors can follow the [development guide](development.md).
+!!! tip "Recommended prerequisite"
+    Install [RA Dark Theme](https://github.com/buckwem/ra-dark-theme/releases/tag/v0.1.0-beta1)
+    first on Ramblers sites using Gantry 5 Hydrogen. It provides an optional dark
+    background for the seasonal effects. Festive Overlay also works independently
+    on light pages. See the [recommended installation order](installation.md#recommended-prerequisite-ra-dark-theme).
 
-## Intended compatibility
+Start with [installation](installation.md), then [configure the effects and
+visitor controls](configuration.md). The default control position is directly
+above **Our Next Walks**, with a corner fallback on other pages.
 
-| Software | Development target |
+The plugin loads assets only on public HTML pages when enabled. Visitors can
+turn effects off or pause them; reduced motion starts paused and sound starts
+muted. Decorations do not intercept links or other pointer interaction.
+
+| Software | Development target or pinned build dependency |
 | --- | --- |
 | Joomla | 5.4 and 6.x |
 | PHP | 8.3 or later |
@@ -21,14 +31,5 @@ setting. Contributors can follow the [development guide](development.md).
 | Zensical | 0.1.3 |
 | Prodockit | 0.81.0 |
 
-Joomla installation and behaviour must be tested before a release. The
-packaging checks validate the archive structure; they don't replace that test.
-
-## Design direction
-
-The extension will provide decorative overlays without changing site content.
-The scaffold loads assets only on public HTML pages when explicitly enabled.
-Its layer doesn't intercept pointer events and is hidden from assistive
-technology. Reduced motion prevents the layer from being created.
-
-See the [roadmap](roadmap.md) for work that hasn't been implemented.
+See [development](development.md) for the local website preview and checks,
+and the [roadmap](roadmap.md) for remaining release work.
