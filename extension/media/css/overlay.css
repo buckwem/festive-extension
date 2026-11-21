@@ -1,0 +1,14 @@
+/* Copyright (C) 2026 Mark Buckwell. Licence: GPL-2.0-or-later. */
+#festive-overlay {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  #festive-overlay {
+    display: none;
+  }
+}

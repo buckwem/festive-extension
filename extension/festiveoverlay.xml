@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_FESTIVEOVERLAY</name>
+    <author>Mark Buckwell</author>
+    <creationDate>2026-11</creationDate>
+    <copyright>Copyright (C) 2026 Mark Buckwell</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <version>0.1.0-dev</version>
+    <description>PLG_SYSTEM_FESTIVEOVERLAY_XML_DESCRIPTION</description>
+    <namespace path="src">FestiveOverlay\Plugin\System\FestiveOverlay</namespace>
+    <files>
+        <folder plugin="festiveoverlay">services</folder>
+        <folder>src</folder>
+        <filename>LICENSE.txt</filename>
+    </files>
+    <media destination="plg_system_festiveoverlay" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/plg_system_festiveoverlay.ini</language>
+        <language tag="en-GB">en-GB/plg_system_festiveoverlay.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="enabled" type="radio" layout="joomla.form.field.radio.switcher"
+                    default="0" filter="integer"
+                    label="PLG_SYSTEM_FESTIVEOVERLAY_FIELD_ENABLED_LABEL"
+                    description="PLG_SYSTEM_FESTIVEOVERLAY_FIELD_ENABLED_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
