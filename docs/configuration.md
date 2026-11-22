@@ -1,6 +1,8 @@
 # Configuration
 
-Open **System → Manage → Plugins → System - Festive Overlay**.
+Open **System → Manage → Plugins → System - Festive Overlay**. See the
+[settings screenshot in the installation instructions](installation.md#install-in-joomla)
+for an example of the enabled plugin.
 
 | Setting | Default | Behaviour |
 | --- | --- | --- |

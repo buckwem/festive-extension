@@ -83,8 +83,15 @@ from the release assets. [Festive Overlay beta4 release](https://github.com/buck
 4. Open **System → Manage → Plugins** and find **System - Festive Overlay**.
 5. Enable the plugin. Its separate **Enable festive effects** setting starts at **No**.
 
+The screenshot shows the plugin enabled with **Enable festive effects** set to
+**Yes**, automatic seasonal effects and controls above **Our Next Walks**.
+
+[![Festive Overlay settings in Joomla 5.4.10: Status Enabled, Enable festive effects Yes, automatic Christmas and New Year effects, snow from 12-01 to 12-30, fireworks on 01-01 for 24 hours, and controls above Our Next Walks.](images/festive-overlay-joomla-settings.png)](images/festive-overlay-joomla-settings.png)
+
+*Festive Overlay configuration on Alton Ramblers. Select the screenshot to view it at full size.*
+
 Set **Enable festive effects** to **Yes** and choose the effect and control
-position. The default puts the icons above **Our Next Walks**. Effects follow
+position, then click **Save & Close**. The default puts the icons above **Our Next Walks**. Effects follow
 their seasonal dates; use the [local preview](configuration.md#local-previews)
 to test outside those dates. Use the [ZIP testing guide](documentation.md) for a
 local browser preview.
