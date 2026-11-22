@@ -18,8 +18,14 @@ Use the controls to pause or hide the effect. If reduced motion is enabled,
 choose **Resume** to start it. Fireworks start muted. [Clear the test](?)
 to return to this page without an effect.
 
+For a local preview using a downloaded installer, follow the
+[ZIP testing guide](documentation.md). The hosted demonstration uses the ZIP
+produced by the documentation workflow, which may be newer than the released beta.
+
 ## Test a Joomla page
 
+First [install the downloaded ZIP](installation.md#download-and-install-festive-overlay)
+on a development Joomla site and enable the plugin and **Enable festive effects**.
 Append one parameter to the URL of a public page where Festive Overlay is
 enabled. Use `&` instead of `?` if the URL already has a query string. The
 value must be `true`. Remove the parameter to return to the site's normal

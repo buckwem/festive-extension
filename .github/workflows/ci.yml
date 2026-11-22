@@ -31,7 +31,15 @@ jobs:
           python scripts/build_package.py --check
           python scripts/build_package.py
       - name: Prepare demonstration assets
-        run: python -c "from shutil import copytree; copytree('extension/media', 'docs/festive-demo', dirs_exist_ok=True)"
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          packages = list(Path("dist").glob("*.zip"))
+          if len(packages) != 1:
+              raise SystemExit("Expected exactly one installer ZIP")
+          subprocess.run(["python", "scripts/prepare_demo.py", str(packages[0])], check=True)
+          PY
       - name: Check Prodockit assets
         run: prodockit shared-files --check
       - name: Build documentation

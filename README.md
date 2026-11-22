@@ -22,15 +22,13 @@ Download `plg_system_festiveoverlay-0.1.0-beta3.zip` from the release assets
 and upload it through the extension installer on a development Joomla site.
 [Festive Overlay beta3 release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta3)
 
-To build the same installer locally, run `make package` from the repository
-root. It writes the ZIP to `dist/`.
-
 ## Try the effects
 
-Run `make docs-serve` and open the **Test festive effects** page. It offers
-five links for snow, snow with Father Christmas, fireworks, drones, and
-fireworks followed by drones. The same URL parameters work on a public Joomla
-page where the plugin is enabled. [Test page and URL parameters](docs/test-effects.md)
+Use the [hosted test page](https://buckwem.github.io/festive-extension/test-effects/)
+or follow the [local ZIP testing guide](docs/documentation.md) to preview the
+assets from your downloaded installer with Zensical. The same
+[test URL parameters](docs/test-effects.md) work on a public Joomla page where
+the plugin and festive effects are enabled.
 
 To schedule the display, set **Fireworks start date** and **Fireworks duration
 (hours)** in the plugin settings. The defaults cover all of 1 January in each
@@ -51,40 +49,12 @@ RA Dark Theme is recommended, not required. Festive Overlay works in light mode
 too, so the default appearance can remain **Light**. The two extensions have
 separate installers and settings. Check the seasonal effects in both modes.
 
-## Getting started
+## Maintainers
 
-Use Python 3.13 for the documentation environment and PHP 8.3 or later for
-syntax checks. Python 3.11 or later can run the packaging utility on its own.
-
-```sh
-cd ~/repos/festive-extension
-make setup
-make check
-make lint-php
-make test
-make package
-make docs
-make docs-serve
-```
-
-`make docs-serve` previews the documentation at <http://127.0.0.1:8000>.
-
-See [installation](docs/installation.md), [configuration](docs/configuration.md)
-and [development](docs/development.md) for the remaining steps.
-
-## Local website preview
-
-```sh
-make preview-mirror
-make preview-serve
-```
-
-Open [the Christmas preview](http://127.0.0.1:8765/?festive-overlay-test=1&festive-overlay-panel=0&festive-overlay-time=2026-12-24T10:00:00Z&festive-overlay-speed=0).
-The mirror follows public menu and article links, currently copying 162 pages and their assets. It does not copy the
-Joomla database or administrator access. Live API calls and form submissions
-are blocked. The original WeatherWidget.io forecast remains live and needs an
-internet connection. `.local-site/` and `.test-output/` are ignored by Git and excluded
-from the installation ZIP. The mirror is for local visual testing only.
+Source builds, validation, documentation builds and publishing are described in
+[Building and releasing](docs/maintaining.md). The
+[development guide](docs/development.md) covers the plugin structure and local
+website mirror.
 
 ## Repository layout
 

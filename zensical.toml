@@ -14,9 +14,12 @@ nav = [
   { "Installation" = "installation.md" },
   { "Configuration" = "configuration.md" },
   { "Test festive effects" = "test-effects.md" },
-  { "Development" = "development.md" },
-  { "Documentation" = "documentation.md" },
+  { "Local ZIP testing" = "documentation.md" },
   { "Roadmap" = "roadmap.md" },
+  { "Maintainers" = [
+    { "Building and releasing" = "maintaining.md" },
+    { "Development" = "development.md" },
+  ] },
 ]
 extra_css = ["stylesheets/pdk.css", "stylesheets/extra.css"]
 extra_javascript = ["javascripts/pdk.js"]

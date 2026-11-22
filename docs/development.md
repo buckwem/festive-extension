@@ -1,22 +1,8 @@
 # Development
 
-## Set up
-
-Install Python 3.13, Node.js 22 or later and PHP 8.3 or later, then run these commands from the
-repository root:
-
-```sh
-make setup
-make check
-make lint-php
-make test
-make package
-make docs
-```
-
-`make setup` creates `.venv` and installs the pinned documentation dependencies.
-It doesn't install Joomla or PHP. Run the extension inside a separate Joomla
-development site and keep credentials outside this repository.
+For source validation, packaging, documentation builds and release steps, see
+the [maintainer guide](maintaining.md). To try the released plugin, use the
+[ZIP testing guide](documentation.md).
 
 ## Extension structure
 
@@ -69,8 +55,8 @@ and CC0 attribution in `THIRD_PARTY_NOTICES.txt`.
 ## Local Alton Ramblers preview
 
 ```sh
-make preview-mirror
-make preview-serve
+python scripts/expand_mirror.py
+python -m http.server 8765 --bind 127.0.0.1 --directory .local-site
 ```
 
 The mirror follows public menu and article links, with a 500-page safeguard.
@@ -94,23 +80,6 @@ the public site’s typography. Two existing Font Awesome v4 compatibility font 
 returned 404; other downloaded fonts remained available. The initial browser
 checks covered desktop/mobile layout, navigation, snow pause/hide, saved
 preferences, artwork transparency and controls above the walks heading.
-
-## Validation and release work
-
-`make check` verifies the manifest and declared inputs. `make lint-php` checks
-syntax. `make test` exercises the browser runtime in Node with DOM/canvas test
-doubles and PHP settings/guards with Joomla API test doubles. Neither is a
-substitute for installing the extension in Joomla. `make package` produces a ZIP with stable timestamps and file order.
-`make docs` checks managed assets and builds the documentation in strict mode.
-The GitHub Actions workflow runs these checks if the repository is hosted there.
-
-Before claiming a supported release, install, update and uninstall the package
-on each target Joomla version. Check public pages, administrator pages,
-subdirectory installations and non-HTML responses. Verify keyboard interaction,
-reduced motion and printing with the installed plugin.
-
-Update the manifest version, `CHANGELOG.md` and the documentation together.
-Add focused behaviour tests as the extension gains functionality.
 
 ## Upstream references
 

@@ -50,9 +50,8 @@ package:
 docs-assets:
 	$(VENV)/bin/prodockit shared-files --apply
 
-docs-demo-assets:
-	mkdir -p docs/festive-demo
-	cp -R extension/media/. docs/festive-demo/
+docs-demo-assets: package
+	$(PYTHON) scripts/prepare_demo.py dist/plg_system_festiveoverlay-$(shell $(PYTHON) -c "import xml.etree.ElementTree as E; print(E.parse('extension/festiveoverlay.xml').getroot().findtext('version'))").zip
 
 docs: docs-demo-assets
 	$(VENV)/bin/prodockit shared-files --check
