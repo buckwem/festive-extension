@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-beta2 (22 November 2026)
+
+- Extended fireworks and the alternating drone display to all 24 hours of New Year’s Day in the visitor’s time zone.
+- Added checks for 02:00, noon, the final second of 1 January and the midnight cutoff in Nepal.
+
+
 ## 0.1.0-beta1 (21 November 2026)
 
 - Ported Prodockit Christmas snow, global sleigh route, New Year fireworks and

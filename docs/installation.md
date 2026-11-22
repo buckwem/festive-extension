@@ -21,7 +21,7 @@ The two extensions have separate installers and settings.
    on a staging copy before applying it to a public site.
 2. Obtain the standalone template installer,
    `tpl_ra_darktheme-0.2.0-beta3.zip`, supplied for your site. The earlier
-   `plg_system_ra_darktheme-0.1.0-beta1.zip` GitHub release is the system plugin,
+   `plg_system_ra_darktheme-0.1.0-beta2.zip` GitHub release is the system plugin,
    which does not appear as a selectable Gantry theme.
 3. Open **System → Install → Extensions → Upload Package File** and upload the
    template ZIP. Use Joomla's installer, rather than Gantry's Import control.
@@ -75,8 +75,8 @@ removal behaviour still require staging checks.
 
 ## Download and install Festive Overlay
 
-Download `plg_system_festiveoverlay-0.1.0-beta1.zip` from the
-[GitHub beta release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta1).
+Download `plg_system_festiveoverlay-0.1.0-beta2.zip` from the
+[GitHub beta release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta2).
 Use this plugin ZIP for Joomla installation. The automatic source archives are
 for development. Alternatively, build the installer using the following commands.
 
@@ -91,7 +91,7 @@ make package
 ```
 
 Packaging uses Python's standard library and doesn't require the documentation
-dependencies. It creates `dist/plg_system_festiveoverlay-0.1.0-beta1.zip` from the
+dependencies. It creates `dist/plg_system_festiveoverlay-0.1.0-beta2.zip` from the
 files declared in `extension/festiveoverlay.xml`.
 
 ### Install in Joomla

@@ -127,9 +127,10 @@ test('blocked storage does not prevent animation or controls',()=>{
   assert.deepEqual(r.warnings,[]);
 });
 
-test('New Year local-time window includes midnight and excludes 02:00 in Nepal',()=>{
+test('New Year local-time window covers all of 1 January in Nepal',()=>{
   for(const [time,active] of [['2026-12-31T18:14:59Z',false],['2026-12-31T18:15:00Z',true],
-    ['2026-12-31T20:14:59Z',true],['2026-12-31T20:15:00Z',false]]) {
+    ['2026-12-31T20:14:59Z',true],['2026-12-31T20:15:00Z',true],['2027-01-01T06:15:00Z',true],
+    ['2027-01-01T18:14:59Z',true],['2027-01-01T18:15:00Z',false]]) {
     const r=runtime({config:{enabled:true,effect:'fireworks'},
       query:'?festive-overlay-test=1&festive-overlay-zone=Asia%2FKathmandu&festive-overlay-time='+time});
     assert.equal(r.snapshot().active,active);assert.equal(r.frames.size,active?1:0);

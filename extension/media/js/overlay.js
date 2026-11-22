@@ -169,7 +169,7 @@
     });
     function active() {
       const parts = Object.fromEntries(formatter.formatToParts(new Date(preview ? simulated : Date.now())).map(p => [p.type, p.value]));
-      return parts.month === "01" && parts.day === "01" && Number(parts.hour) < 2;
+      return parts.month === "01" && parts.day === "01";
     }
     function random() { seed = (1664525 * seed + 1013904223) >>> 0; return seed / 4294967296; }
     function button(text, label, action, parent = controls) {
@@ -552,7 +552,7 @@
       }
       ctx.globalAlpha = 1;
       if (status) status.textContent = new Date(simulated).toISOString() + " · " + zone +
-        " · " + (active() ? "New Year active" : "Outside 00:00–02:00 on 1 January") + " · " + sparks.length + " sparks";
+        " · " + (active() ? "New Year active" : "Outside 1 January") + " · " + sparks.length + " sparks";
       if (preview) canvas.dataset.snapshot = JSON.stringify({effect: "fireworks", active: active(), sparks: sparks.length,
         rockets: rockets.length, drone: drone?.name, droneDepthLevels: drone ? new Set(drone.targets.map(p => p.z.toFixed(3))).size : 0, groundEffects: groundEffects.map(e => e.kind), groundSparks: sparks.filter(p => p.ground).length, sound, paused, hidden, zone, show: drone ? "drones" : "fireworks"});
     }

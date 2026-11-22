@@ -5,7 +5,7 @@ Joomla public pages. It includes snow, Father Christmas's sleigh carrying
 walking boots with bows, fireworks and drone displays.
 
 !!! info "Beta status"
-    Version **0.1.0-beta1** has been checked against a local front-end copy of
+    Version **0.1.0-beta2** has been checked against a local front-end copy of
     [Alton Ramblers](https://www.altonramblers.org.uk/). Installation, update and removal on real Joomla 5.4 and
     6.x installations still need verification before a supported release.
 

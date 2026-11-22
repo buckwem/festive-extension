@@ -25,7 +25,8 @@ Snow can continue outside the sleigh window within the configured season.
 ## New Year
 
 Automatic mode selects New Year on 1 January in the visitor's time zone.
-Fireworks run from **00:00 until 02:00 local time**. With drones enabled,
+Fireworks run for **all 24 hours of 1 January**, from midnight until midnight
+at the start of 2 January in the visitor's time zone. With drones enabled,
 two-minute fireworks and drone sequences alternate. Choosing the fireworks
 effect explicitly still honours this time window.
 
