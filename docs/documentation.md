@@ -52,9 +52,15 @@ Zensical and Prodockit versions aligned with the versions documented here.
 
 The public source repository is
 [buckwem/festive-extension](https://github.com/buckwem/festive-extension).
-The GitHub Actions workflow uploads the built site as a downloadable artefact
-but doesn't publish it. When documentation hosting is chosen, set `site_url`
-in `zensical.toml` and add a deployment workflow for the selected service.
+The documentation is published at
+[Festive Overlay documentation](https://buckwem.github.io/festive-extension/).
+On pushes to `main`, GitHub Actions builds the strict Zensical/Prodockit site
+and deploys it through the `github-pages` environment after the PHP and build
+checks pass. Pull requests run checks without deployment. The workflow can
+also be started manually from the Actions tab.
+
+`site_url` in `zensical.toml` sets the Pages project URL. Deployments include only
+the generated `site/` directory; local mirrors and recordings are excluded.
 
 See the [Zensical documentation](https://zensical.org/docs/) and
 [Prodockit documentation](https://prodockit.org/) for authoring features.

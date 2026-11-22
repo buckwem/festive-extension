@@ -3,6 +3,8 @@
 A Joomla system plugin project for seasonal overlays, with documentation built
 using [Zensical](https://zensical.org/) and [Prodockit](https://prodockit.org/).
 
+Read the [published documentation](https://buckwem.github.io/festive-extension/).
+
 **Status: beta, version 0.1.0-beta3.** Ports Prodockit's Christmas snow, sleigh,
 New Year fireworks and drone displays to Joomla. The sleigh carries walking
 boots with red and gold bows. Visitor controls sit above **Our Next Walks**, with
