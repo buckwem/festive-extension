@@ -25,7 +25,12 @@ namespace Joomla\CMS\Event\Application {
     }
 }
 namespace Joomla\CMS\Uri {
-    class Uri { public static function root($pathOnly) { return '/joomla-subdirectory'; } }
+    class Uri {
+        public static string $siteRoot = 'https://example.test/joomla-subdirectory/';
+        public static function root($pathOnly = false) {
+            return $pathOnly ? rtrim(parse_url(self::$siteRoot, PHP_URL_PATH), '/') : self::$siteRoot;
+        }
+    }
 }
 namespace {
     define('_JEXEC', 1);
@@ -85,10 +90,18 @@ namespace {
     expect($options['season_start'] === '12-01' && $options['season_end'] === '12-30', 'Invalid dates did not fall back');
     expect($options['palette'] === 'auto' && $options['position'] === 'bottom-left', 'Appearance options are incorrect');
     expect($doc->assets->scripts[0][4] === ['core'], 'Joomla core dependency is missing');
-    expect($doc->assets->scripts[0][1] === '/joomla-subdirectory/media/plg_system_festiveoverlay/js/overlay.js', 'Subdirectory URL is incorrect');
+    foreach (['https://example.test/', 'https://example.test/joomla-subdirectory/',
+        'https://example.test/joomla-subdirectory'] as $root) {
+        \Joomla\CMS\Uri\Uri::$siteRoot = $root;
+        $assets = runPlugin(['enabled' => 1])->assets;
+        $base = rtrim($root, '/') . '/media/plg_system_festiveoverlay/';
+        expect($assets->scripts[0][1] === $base . 'js/overlay.js', 'Script URL is incorrect');
+        expect($assets->styles[0][1] === $base . 'css/overlay.css', 'Stylesheet URL is incorrect');
+        expect(parse_url($assets->scripts[0][1], PHP_URL_HOST) === 'example.test', 'Asset escaped the site host');
+    }
     $doc = runPlugin(['enabled' => 1, 'effect' => '<script>', 'season_start' => '02-29', 'season_end' => '12-31']);
     expect($doc->options['plg_system_festiveoverlay']['effect'] === 'auto', 'Unknown effect was not rejected');
     expect($doc->options['plg_system_festiveoverlay']['season_start'] === '02-29', 'Valid leap date was rejected');
     expect($doc->options['plg_system_festiveoverlay']['position'] === 'above-walks', 'Default heading position was lost');
-    echo "Passed plugin client/document guards, settings, date validation and subdirectory assets.\n";
+    echo "Passed plugin client/document guards, settings, date validation and absolute root/subdirectory asset URLs.\n";
 }

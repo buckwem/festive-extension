@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.0-beta4 (22 November 2026)
+
+- Fixed Joomla asset URLs being rendered with `//media/`, which prevented the effects and controls from loading. Use absolute site URLs for both root and subdirectory installations.
+- The site maintainer confirmed the corrected package and effects working on Alton Ramblers (Joomla 5.4.10). Joomla 6 installation, updates and removal still need integration testing.
+
 ## 0.1.0-beta3 (22 November 2026)
 
 - Added a configurable annual fireworks start date and a duration of 1–24 hours from local midnight. The defaults cover all of 1 January.

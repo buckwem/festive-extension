@@ -32,7 +32,7 @@ python scripts/build_package.py
 
 The version comes from `extension/festiveoverlay.xml`. The package contains only
 manifest-declared files, with stable timestamps and file order. For the current
-beta it is `dist/plg_system_festiveoverlay-0.1.0-beta3.zip`.
+beta it is `dist/plg_system_festiveoverlay-0.1.0-beta4.zip`.
 
 ## Build and preview the documentation
 
@@ -41,7 +41,7 @@ and managed assets from [Prodockit](https://prodockit.org/). Prepare the demo fr
 the installer you just built, then validate and build the site:
 
 ```sh
-python scripts/prepare_demo.py dist/plg_system_festiveoverlay-0.1.0-beta3.zip
+python scripts/prepare_demo.py dist/plg_system_festiveoverlay-0.1.0-beta4.zip
 prodockit shared-files --check
 zensical build --clean --strict
 ```

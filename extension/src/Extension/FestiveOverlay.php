@@ -36,7 +36,8 @@ final class FestiveOverlay extends CMSPlugin implements SubscriberInterface
             return;
         }
 
-        $base = Uri::root(true) . '/media/plg_system_festiveoverlay/';
+        // Absolute URLs bypass Web Asset Manager's relative-path prefixing.
+        $base = rtrim(Uri::root(), '/') . '/media/plg_system_festiveoverlay/';
         $effect = (string) $this->params->get('effect', 'auto');
         $fireworksHours = filter_var($this->params->get('fireworks_hours', 24), FILTER_VALIDATE_INT, [
             'options' => ['min_range' => 1, 'max_range' => 24],

@@ -72,8 +72,8 @@ removal behaviour still require staging checks.
 
 ## Download and install Festive Overlay
 
-Download the attached `plg_system_festiveoverlay-0.1.0-beta3.zip` installer
-from the release assets. [Festive Overlay beta3 release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta3)
+Download the attached `plg_system_festiveoverlay-0.1.0-beta4.zip` installer
+from the release assets. [Festive Overlay beta4 release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta4)
 
 ### Install in Joomla
 
@@ -107,3 +107,8 @@ If assets don't load, check both the plugin's status and its effects setting.
 Confirm that you're viewing a public HTML page, then clear Joomla and browser
 caches. Administrator pages, non-HTML responses and `tmpl=component` views are
 deliberately excluded.
+
+If both enable settings are on but even a public test URL shows no controls,
+inspect the page source for `//media/plg_system_festiveoverlay/`. This is a known
+asset URL defect in earlier packages, fixed in beta4. It is not
+resolved by changing the seasonal dates or clearing browser preferences.

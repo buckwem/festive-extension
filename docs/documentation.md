@@ -5,8 +5,8 @@ the extension or publish a release.
 
 ## Test in Joomla
 
-Download `plg_system_festiveoverlay-0.1.0-beta3.zip` from the
-[beta3 release assets](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta3).
+Download `plg_system_festiveoverlay-0.1.0-beta4.zip` from the
+[beta4 release assets](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta4).
 Choose the installer ZIP, rather than GitHub's **Source code** archives.
 
 Follow the [installation instructions](installation.md#download-and-install-festive-overlay)
@@ -48,13 +48,13 @@ Pass the downloaded installer ZIP to the preparation command. For example, on
 macOS or Linux:
 
 ```sh
-python scripts/prepare_demo.py ~/Downloads/plg_system_festiveoverlay-0.1.0-beta3.zip
+python scripts/prepare_demo.py ~/Downloads/plg_system_festiveoverlay-0.1.0-beta4.zip
 ```
 
 On Windows PowerShell:
 
 ```powershell
-python scripts/prepare_demo.py "$HOME/Downloads/plg_system_festiveoverlay-0.1.0-beta3.zip"
+python scripts/prepare_demo.py "$HOME/Downloads/plg_system_festiveoverlay-0.1.0-beta4.zip"
 ```
 
 Use the path where you saved the ZIP. The command validates its Festive Overlay

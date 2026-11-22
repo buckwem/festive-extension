@@ -5,22 +5,23 @@ using [Zensical](https://zensical.org/) and [Prodockit](https://prodockit.org/).
 
 Read the [published documentation](https://buckwem.github.io/festive-extension/).
 
-**Status: beta, version 0.1.0-beta3.** Ports Prodockit's Christmas snow, sleigh,
+**Status: beta, version 0.1.0-beta4.** Ports Prodockit's Christmas snow, sleigh,
 New Year fireworks and drone displays to Joomla. The sleigh carries walking
 boots with red and gold bows. Visitor controls sit above **Our Next Walks**, with
 a corner fallback on pages without that heading. Effects are opt-in and seasonal.
 
-The local Alton Ramblers front-end snapshot has been used for browser checks.
-A real Joomla installation/update/uninstall test remains necessary before a production release.
+The site maintainer confirmed beta4 working on Alton Ramblers (Joomla 5.4.10).
+Joomla 6 installation, updates and removal still need integration testing before
+a production release.
 
 The development targets are Joomla 5.4 and 6.x on PHP 8.3 or later. These are
 targets, not a claim of completed Joomla integration testing.
 
 ## Download the beta installer
 
-Download `plg_system_festiveoverlay-0.1.0-beta3.zip` from the release assets
+Download `plg_system_festiveoverlay-0.1.0-beta4.zip` from the release assets
 and upload it through the extension installer on a development Joomla site.
-[Festive Overlay beta3 release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta3)
+[Festive Overlay beta4 release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta4)
 
 ## Try the effects
 
