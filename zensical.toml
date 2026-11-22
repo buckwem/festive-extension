@@ -15,7 +15,6 @@ nav = [
   { "Configuration" = "configuration.md" },
   { "Test festive effects" = "test-effects.md" },
   { "Local ZIP testing" = "documentation.md" },
-  { "Roadmap" = "roadmap.md" },
   { "Maintainers" = [
     { "Building and releasing" = "maintaining.md" },
     { "Development" = "development.md" },

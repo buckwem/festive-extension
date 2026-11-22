@@ -32,5 +32,5 @@ muted. Decorations do not intercept links or other pointer interaction.
 | Zensical | 0.1.3 |
 | Prodockit | 0.81.0 |
 
-See [development](development.md) for the local website preview and checks,
-and the [roadmap](roadmap.md) for remaining release work.
+See [development](development.md) for the local website preview and
+[Building and releasing](maintaining.md) for validation and release checks.
