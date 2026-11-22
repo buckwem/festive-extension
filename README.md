@@ -16,10 +16,9 @@ targets, not a claim of completed Joomla integration testing.
 
 ## Download the beta
 
-The [0.1.0-beta2 release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta2)
-includes the [installable Joomla ZIP](https://github.com/buckwem/festive-extension/releases/download/v0.1.0-beta2/plg_system_festiveoverlay-0.1.0-beta2.zip)
-and a downloadable README. Upload the named plugin ZIP in Joomla; GitHub's
-automatic source archives contain the development project.
+There is currently no published installer ZIP for this project. Build the
+current installer using the commands below. GitHub's automatic source archives
+contain the development project and are not Joomla installation packages.
 
 ## Recommended prerequisite: RA Dark Theme
 

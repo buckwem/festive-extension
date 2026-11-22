@@ -19,20 +19,17 @@ The two extensions have separate installers and settings.
 
 1. Back up the site and keep Hydrogen installed for rollback. Preview the beta
    on a staging copy before applying it to a public site.
-2. Obtain the standalone template installer,
-   `tpl_ra_darktheme-0.2.0-beta3.zip`, supplied for your site. The earlier
-   `plg_system_ra_darktheme-0.1.0-beta2.zip` GitHub release is the system plugin,
-   which does not appear as a selectable Gantry theme.
+2. Download `tpl_ra_darktheme-0.2.0-beta4.zip` from the
+   [RA Dark Theme release](https://github.com/buckwem/ra-dark-theme/releases/tag/v0.2.0-beta4).
 3. Open **System → Install → Extensions → Upload Package File** and upload the
    template ZIP. Use Joomla's installer, rather than Gantry's Import control.
 4. Open **Components → Gantry 5 Themes → Available Themes**, then open
-   **RA Dark Theme**. Confirm that the version shown is **0.2.0-beta3** or later.
+   **RA Dark Theme**. Confirm that the version shown is **0.2.0-beta4** or later.
 5. Review the Ramblers layout and preview the template. A template preview does
    not activate it on the normal public URLs.
 
-The Alton Ramblers template package contains site-specific customisations and
-is supplied separately. The linked GitHub repository's earlier plugin release
-is not a download of that template. Other sites need their own layout review.
+The package includes the supplied Ramblers template customisations. Other sites
+should review and adapt the layout on staging.
 
 ### Choose the default appearance
 
@@ -75,10 +72,9 @@ removal behaviour still require staging checks.
 
 ## Download and install Festive Overlay
 
-Download `plg_system_festiveoverlay-0.1.0-beta2.zip` from the
-[GitHub beta release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta2).
-Use this plugin ZIP for Joomla installation. The automatic source archives are
-for development. Alternatively, build the installer using the following commands.
+There is currently no published installer ZIP. Build the current beta using
+the commands below. GitHub's automatic source archives contain development files
+and are not Joomla installation packages.
 
 ### Build the extension
 
