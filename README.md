@@ -23,20 +23,15 @@ automatic source archives contain the development project.
 
 ## Recommended prerequisite: RA Dark Theme
 
-For Ramblers websites using Gantry 5 Hydrogen, install and configure
-[RA Dark Theme](https://github.com/buckwem/ra-dark-theme/releases/tag/v0.1.0-beta2)
-before Festive Overlay. Dark backgrounds make snow, fireworks and drone displays
-easier to see, while the theme switch lets visitors choose their preferred appearance.
+Install and configure [RA Dark Theme](https://github.com/buckwem/ra-dark-theme)
+if you want visitors to choose light or dark appearance. The Gantry template
+includes the Ramblers layout and theme switch. Follow the
+[installation guide](docs/installation.md#recommended-prerequisite-ra-dark-theme)
+for template installation, appearance settings and Joomla menu assignments.
 
-RA Dark Theme is recommended, not a required dependency. Festive Overlay also
-works on light pages and adapts its controls to the page background. Each plugin
-has its own settings and installer; neither bundles the other.
-
-On a staging site, install RA Dark Theme's plugin ZIP, enable **System - RA Dark
-Theme**, select the default theme and check its template setting (`g5_hydrogen`
-by default). Remove the earlier standalone dark-mode prototype assets first.
-Then install Festive Overlay and check the effects in both themes. Both extensions
-are betas awaiting real Joomla installation, update and removal testing.
+RA Dark Theme is recommended, not required. Festive Overlay works in light mode
+too, so the default appearance can remain **Light**. The two extensions have
+separate installers and settings. Check the seasonal effects in both modes.
 
 ## Getting started
 
