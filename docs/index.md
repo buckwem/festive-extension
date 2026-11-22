@@ -5,9 +5,9 @@ Joomla public pages. It includes snow, Father Christmas's sleigh carrying
 walking boots with bows, fireworks and drone displays.
 
 !!! info "Beta status"
-    Version **0.1.0-beta3** is available as a local build for testing. Use a
-    development site to test installation, updates and removal on Joomla 5.4
-    or 6.x.
+    Version **0.1.0-beta3** is available for testing. Use a development site
+    to test installation, updates and removal on Joomla 5.4 or 6.x.
+    [Download the beta](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta3)
 
 !!! tip "Recommended prerequisite"
     Install [RA Dark Theme](https://github.com/buckwem/ra-dark-theme)

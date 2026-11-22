@@ -72,9 +72,8 @@ removal behaviour still require staging checks.
 
 ## Download and install Festive Overlay
 
-There is currently no published installer ZIP. Build the current beta using
-the commands below. GitHub's automatic source archives contain development files
-and are not Joomla installation packages.
+Download the attached `plg_system_festiveoverlay-0.1.0-beta3.zip` installer
+from the release assets. [Festive Overlay beta3 release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta3)
 
 ### Build the extension
 

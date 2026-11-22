@@ -14,12 +14,14 @@ A real Joomla installation/update/uninstall test remains necessary before a prod
 The development targets are Joomla 5.4 and 6.x on PHP 8.3 or later. These are
 targets, not a claim of completed Joomla integration testing.
 
-## Build the beta installer
+## Download the beta installer
 
-Run `make package` to build
-`dist/plg_system_festiveoverlay-0.1.0-beta3.zip`, then upload it through the
-extension installer on a development Joomla site. GitHub's checks also build a
-ZIP and upload it as the `festive-overlay-development-package` artefact.
+Download `plg_system_festiveoverlay-0.1.0-beta3.zip` from the release assets
+and upload it through the extension installer on a development Joomla site.
+[Festive Overlay beta3 release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta3)
+
+To build the same installer locally, run `make package` from the repository
+root. It writes the ZIP to `dist/`.
 
 ## Try the effects
 
