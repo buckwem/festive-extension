@@ -6,20 +6,74 @@ own database and server requirements also apply.
 
 ## Recommended prerequisite: RA Dark Theme
 
-For Ramblers websites using Gantry 5 Hydrogen, install and configure
-[RA Dark Theme](https://github.com/buckwem/ra-dark-theme/releases/tag/v0.1.0-beta1)
-before Festive Overlay. Dark backgrounds make snow, fireworks and drone displays
-easier to see, while the theme switch lets visitors choose their preferred appearance.
+[RA Dark Theme](https://github.com/buckwem/ra-dark-theme) provides a light/dark
+switch for Ramblers websites. Its standalone **Gantry template** includes the
+Ramblers layout and the theme controls. Install and check it before adding
+Festive Overlay if you want visitors to be able to choose either appearance.
 
-RA Dark Theme is recommended, not a required dependency. Festive Overlay also
-works on light pages and adapts its controls to the page background. Each plugin
-has its own settings and installer; neither bundles the other.
+Dark mode is optional: Festive Overlay works in light mode too. You can leave
+the default appearance set to **Light** and let visitors choose dark mode.
+The two extensions have separate installers and settings.
 
-On a staging site, install RA Dark Theme's plugin ZIP, enable **System - RA Dark
-Theme**, select the default theme and check its template setting (`g5_hydrogen`
-by default). Remove the earlier standalone dark-mode prototype assets first.
-Then install Festive Overlay and check the effects in both themes. Both extensions
-are betas awaiting real Joomla installation, update and removal testing.
+### Install the Gantry template
+
+1. Back up the site and keep Hydrogen installed for rollback. Preview the beta
+   on a staging copy before applying it to a public site.
+2. Obtain the standalone template installer,
+   `tpl_ra_darktheme-0.2.0-beta3.zip`, supplied for your site. The earlier
+   `plg_system_ra_darktheme-0.1.0-beta1.zip` GitHub release is the system plugin,
+   which does not appear as a selectable Gantry theme.
+3. Open **System → Install → Extensions → Upload Package File** and upload the
+   template ZIP. Use Joomla's installer, rather than Gantry's Import control.
+4. Disable **System - RA Dark Theme** if it is installed. The new template has
+   its own switch. Remove any earlier standalone prototype CSS and switch.
+5. Open **Components → Gantry 5 Themes → Available Themes**, then open
+   **RA Dark Theme**. Confirm that the version shown is **0.2.0-beta3** or later.
+6. Review the Ramblers layout and preview the template. A template preview does
+   not activate it on the normal public URLs.
+
+The Alton Ramblers template package contains site-specific customisations and
+is supplied separately. The linked GitHub repository's earlier plugin release
+is not a download of that template. Other sites need their own layout review.
+
+### Choose the default appearance
+
+1. In **RA Dark Theme**, select **Base Outline** from the outline dropdown.
+2. Open **Page Settings** and find the **RA Dark Theme** section.
+3. Set **Default theme** to **Light**, **Dark** or **Device preference**.
+4. Click **Save Page Settings**.
+
+For an outline-specific choice, select that outline, enable the field's override
+checkbox and save its Page Settings. A saved visitor choice takes precedence
+over the configured default. Test the default in a fresh private window;
+clearing Joomla's cache does not clear browser preferences.
+
+### Activate the template across the site
+
+1. Open **System → Templates → Site Template Styles**.
+2. Make **RA Dark Theme – Default** the default using its star or the **Default**
+   toolbar button.
+3. Review the existing menu items under **Menus → Main Menu**. Open each item
+   that explicitly selects Hydrogen, and under **Details** change
+   **Template Style** to **Use Default**, then **Save & Close**.
+4. Check the normal public URLs for Home, News, Contacts, Gallery and the walks
+   pages, including mobile navigation, the calendar and weather.
+
+Existing menu assignments override the site-wide default. Changing Home alone
+will not change Gallery or the other explicitly assigned menu pages. On Alton
+Ramblers, setting each affected menu item's **Template Style → Use Default**
+was the verified route. Do not rely on clearing or selecting all Gantry
+assignments as a replacement for checking those Joomla menu settings.
+
+In Gantry's **Assignments** screen, the default-template dropdown must remain
+**All Languages** for a general site default. **English (UK)** is a language-specific
+default; it is separate from both the page-assignment checkboxes and the
+light/dark appearance setting.
+
+Keep Hydrogen available to restore the previous template style and menu
+assignments if testing exposes a problem. Then install Festive Overlay below
+and check its effects in both appearances. These are beta packages; update and
+removal behaviour still require staging checks.
 
 ## Download the beta
 

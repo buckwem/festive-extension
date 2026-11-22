@@ -10,8 +10,9 @@ walking boots with bows, fireworks and drone displays.
     6.x installations still need verification before a supported release.
 
 !!! tip "Recommended prerequisite"
-    Install [RA Dark Theme](https://github.com/buckwem/ra-dark-theme/releases/tag/v0.1.0-beta1)
-    first on Ramblers sites using Gantry 5 Hydrogen. It provides an optional dark
+    Install [RA Dark Theme](https://github.com/buckwem/ra-dark-theme)
+    using the [template installation steps](installation.md#install-the-gantry-template)
+    on Ramblers sites. It provides an optional dark
     background for the seasonal effects. Festive Overlay also works independently
     on light pages. See the [recommended installation order](installation.md#recommended-prerequisite-ra-dark-theme).
 
