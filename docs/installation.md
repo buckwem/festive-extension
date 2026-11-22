@@ -25,11 +25,9 @@ The two extensions have separate installers and settings.
    which does not appear as a selectable Gantry theme.
 3. Open **System → Install → Extensions → Upload Package File** and upload the
    template ZIP. Use Joomla's installer, rather than Gantry's Import control.
-4. Disable **System - RA Dark Theme** if it is installed. The new template has
-   its own switch. Remove any earlier standalone prototype CSS and switch.
-5. Open **Components → Gantry 5 Themes → Available Themes**, then open
+4. Open **Components → Gantry 5 Themes → Available Themes**, then open
    **RA Dark Theme**. Confirm that the version shown is **0.2.0-beta3** or later.
-6. Review the Ramblers layout and preview the template. A template preview does
+5. Review the Ramblers layout and preview the template. A template preview does
    not activate it on the normal public URLs.
 
 The Alton Ramblers template package contains site-specific customisations and
