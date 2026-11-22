@@ -73,14 +73,14 @@ assignments if testing exposes a problem. Then install Festive Overlay below
 and check its effects in both appearances. These are beta packages; update and
 removal behaviour still require staging checks.
 
-## Download the beta
+## Download and install Festive Overlay
 
 Download `plg_system_festiveoverlay-0.1.0-beta1.zip` from the
 [GitHub beta release](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta1).
 Use this plugin ZIP for Joomla installation. The automatic source archives are
 for development. Alternatively, build the installer using the following commands.
 
-## Build the extension
+### Build the extension
 
 From the repository root, run:
 
@@ -94,7 +94,7 @@ Packaging uses Python's standard library and doesn't require the documentation
 dependencies. It creates `dist/plg_system_festiveoverlay-0.1.0-beta1.zip` from the
 files declared in `extension/festiveoverlay.xml`.
 
-## Install in Joomla
+### Install in Joomla
 
 1. Sign in to the Joomla administrator area.
 2. Open **System → Install → Extensions**.
@@ -107,7 +107,7 @@ position. The default puts the icons above **Our Next Walks**. Effects follow
 their seasonal dates; use the [local preview](configuration.md#local-previews)
 to test outside those dates. No live website changes are made by building the ZIP.
 
-## Update or uninstall
+### Update or uninstall
 
 Build and upload a new ZIP to update the plugin. The manifest uses Joomla's
 upgrade installation method. Check that your saved settings survive an update.
@@ -115,7 +115,7 @@ upgrade installation method. Check that your saved settings survive an update.
 To remove it, open **System → Manage → Extensions**, select **System - Festive
 Overlay**, then uninstall it. No database tables are created by this beta.
 
-## Troubleshooting
+### Troubleshooting
 
 If the plugin isn't listed, confirm that the ZIP contains `festiveoverlay.xml`
 at its root, rather than an enclosing project directory.
