@@ -3,7 +3,7 @@
 A Joomla system plugin project for seasonal overlays, with documentation built
 using [Zensical](https://zensical.org/) and [Prodockit](https://prodockit.org/).
 
-**Status: beta, version 0.1.0-beta2.** Ports Prodockit's Christmas snow, sleigh,
+**Status: beta, version 0.1.0-beta3.** Ports Prodockit's Christmas snow, sleigh,
 New Year fireworks and drone displays to Joomla. The sleigh carries walking
 boots with red and gold bows. Visitor controls sit above **Our Next Walks**, with
 a corner fallback on pages without that heading. Effects are opt-in and seasonal.
@@ -14,11 +14,26 @@ A real Joomla installation/update/uninstall test remains necessary before a prod
 The development targets are Joomla 5.4 and 6.x on PHP 8.3 or later. These are
 targets, not a claim of completed Joomla integration testing.
 
-## Download the beta
+## Build the beta installer
 
-There is currently no published installer ZIP for this project. Build the
-current installer using the commands below. GitHub's automatic source archives
-contain the development project and are not Joomla installation packages.
+Run `make package` to build
+`dist/plg_system_festiveoverlay-0.1.0-beta3.zip`, then upload it through the
+extension installer on a development Joomla site. GitHub's checks also build a
+ZIP and upload it as the `festive-overlay-development-package` artefact.
+
+## Try the effects
+
+Run `make docs-serve` and open the **Test festive effects** page. It offers
+five links for snow, snow with Father Christmas, fireworks, drones, and
+fireworks followed by drones. The same URL parameters work on a public Joomla
+page where the plugin is enabled. [Test page and URL parameters](docs/test-effects.md)
+
+To schedule the display, set **Fireworks start date** and **Fireworks duration
+(hours)** in the plugin settings. The defaults cover all of 1 January in each
+visitor's time zone. For example, `12-31` and `2` run the display from
+midnight to 02:00 on 31 December. The default snow season ends on 30 December
+UTC, and the sleigh flies from 10:00 UTC on 24 December to 11:00 UTC on
+25 December. [Configuration guide](docs/configuration.md)
 
 ## Recommended prerequisite: RA Dark Theme
 
@@ -49,8 +64,6 @@ make docs-serve
 ```
 
 `make docs-serve` previews the documentation at <http://127.0.0.1:8000>.
-`make package` writes `dist/plg_system_festiveoverlay-0.1.0-beta2.zip`. Upload that
-ZIP through Joomla's extension installer on a development site.
 
 See [installation](docs/installation.md), [configuration](docs/configuration.md)
 and [development](docs/development.md) for the remaining steps.
@@ -75,7 +88,7 @@ from the installation ZIP. The mirror is for local visual testing only.
 extension/                  Joomla plugin files, manifest, language and media
 docs/                       User and developer documentation
 scripts/                    Validation and ZIP packaging
-.github/workflows/ci.yml     Checks and build artefacts if hosted on GitHub
+.github/workflows/ci.yml     GitHub checks and build artefacts
 zensical.toml               Documentation configuration
 requirements-docs.txt       Pinned documentation dependencies
 .prodockit-shared-files.toml Managed Prodockit asset declarations

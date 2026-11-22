@@ -8,7 +8,8 @@ const source = fs.readFileSync('extension/media/js/overlay.js', 'utf8');
 
 function runtime({ time = '2026-12-24T10:00:00Z', config = {enabled:true, effect:'auto'},
   hostname = '127.0.0.1', query = '?festive-overlay-test=1&festive-overlay-time=2026-12-24T10:00:00Z&festive-overlay-speed=0',
-  reduced = false, saved = {}, unavailableStorage = false, walksHeading = false, background = 'rgb(255, 255, 255)' } = {}) {
+  reduced = false, saved = {}, unavailableStorage = false, walksHeading = false, demo = false,
+  background = 'rgb(255, 255, 255)' } = {}) {
   let now = Date.parse(time), options = config, next = 0;
   const frames = new Map(), intervals = new Map(), images = [], warnings = [];
   const storage = new Map(Object.entries(saved));
@@ -38,6 +39,7 @@ function runtime({ time = '2026-12-24T10:00:00Z', config = {enabled:true, effect
     heading.textContent='Our Next Walks'; section.append(heading); document.body.append(section); headings.push(heading);
   }
   document.querySelectorAll=()=>headings;
+  document.getElementById=id=>id==='festive-overlay-demo'&&demo ? document.body : null;
   const motion=new EventTarget(); motion.matches=reduced;
   const window=new EventTarget();
   Object.assign(window, {innerWidth:1000, innerHeight:800, Joomla:{getOptions:()=>options}});
@@ -76,20 +78,104 @@ test('production needs explicit enablement and ignores preview query parameters'
   assert.equal(r.canvas().hidden,true); assert.equal(r.frames.size,0);
 });
 
-test('production snow season includes both boundaries across New Year',()=>{
-  const r=runtime({hostname:'www.altonramblers.org.uk',time:'2026-11-30T23:59:59Z',query:''});
+test('public snow presets work outside the season and select the sleigh explicitly',()=>{
+  for(const santa of [false,true]) {
+    const r=runtime({hostname:'example.org',time:'2026-07-01T12:00:00Z',
+      query:santa?'?festive-santa=true':'?festive-snow=true',
+      config:{enabled:true,effect:'fireworks',sleigh:!santa}});
+    assert.equal(r.canvas().hidden,false);
+    assert.equal(Boolean(r.snapshot().destination),santa);
+    assert.equal(r.images.length,santa?1:0);
+    assert.equal(r.button('Step'),undefined);
+    assert.equal(r.frames.size,1);
+  }
+});
+
+test('public New Year presets choose fireworks only, drones only or both',()=>{
+  for(const mode of ['fireworks','drone','fireworks-drone']) {
+    const r=runtime({hostname:'example.org',time:'2026-07-01T12:00:00Z',
+      query:'?festive-'+mode+'=true',config:{enabled:true,effect:'snow',drone:mode==='fireworks'}});
+    assert.equal(r.canvas().hidden,false);
+    r.animate(1);
+    assert.equal(r.snapshot().show,mode==='drone'?'drones':'fireworks');
+    assert.equal(r.snapshot().rockets>0,mode!=='drone');
+    assert.equal(r.snapshot().sound,false);
+    // Start a fresh runtime so animation timestamps increase across the entire show.
+    const complete=runtime({hostname:'example.org',time:'2026-07-01T12:00:00Z',query:'?festive-'+mode+'=true'});
+    complete.animate(2700);
+    assert.equal(complete.snapshot().show,mode==='fireworks'?'fireworks':'drones');
+    if(mode==='drone') assert.equal(complete.snapshot().rockets+complete.snapshot().sparks,0);
+    assert.deepEqual(complete.warnings,[]);
+  }
+});
+
+test('public presets require Joomla enablement or the standalone documentation marker',()=>{
+  const options={hostname:'example.org',query:'?festive-snow=true'};
+  assert.equal(runtime({...options,config:null}).canvas(),undefined);
+  assert.equal(runtime({...options,config:{enabled:false}}).canvas(),undefined);
+  const demo=runtime({...options,config:null,demo:true,reduced:true});
+  assert.equal(demo.snapshot().paused,true);
+  assert.equal(demo.frames.size,0);
+  assert.equal(runtime({...options,config:null,demo:true,query:''}).canvas(),undefined);
+  const ordinary=runtime({...options,time:'2026-07-01T12:00:00Z',query:'?festive-snow=false'});
+  assert.equal(ordinary.canvas().hidden,true);
+});
+
+test('the default snow season includes 30 December and ends before 31 December',()=>{
+  const r=runtime({hostname:'example.org',time:'2026-11-30T23:59:59Z',query:'',
+    config:{enabled:true,effect:'snow'}});
+  assert.equal(r.canvas().hidden,true);
+  r.clock('2026-12-01T00:00:00Z'); assert.equal(r.canvas().hidden,false);
+  r.clock('2026-12-30T23:59:59Z'); assert.equal(r.canvas().hidden,false);
+  r.clock('2026-12-31T00:00:00Z'); assert.equal(r.canvas().hidden,true); assert.equal(r.frames.size,0);
+});
+
+test('a configured snow season can still extend into January',()=>{
+  const r=runtime({hostname:'www.altonramblers.org.uk',time:'2026-11-30T23:59:59Z',query:'',
+    config:{enabled:true,effect:'snow',season_end:'01-06'}});
   assert.equal(r.canvas().hidden,true);
   r.clock('2026-12-01T00:00:00Z'); assert.equal(r.canvas().hidden,false);
   r.clock('2027-01-06T23:59:59Z'); assert.equal(r.canvas().hidden,false);
   r.clock('2027-01-07T00:00:00Z'); assert.equal(r.canvas().hidden,true); assert.equal(r.frames.size,0);
 });
 
-test('Christmas route boundaries and fractional Nepal handover survive the port',()=>{
+test('automatic mode switches to fireworks on 1 January with the default snow season',()=>{
+  const r=runtime({hostname:'example.org',time:new Date(2026,11,31,12).toISOString(),query:''});
+  assert.equal(r.canvas().hidden,true);
+  r.clock(new Date(2027,0,1,0).toISOString());
+  assert.equal(r.canvas().hidden,false);
+  assert.ok(r.button('Pause fireworks'));
+});
+
+test('the sleigh follows the 25-hour flight window and keeps fractional-zone handovers',()=>{
   for(const [time,expected] of [['2026-12-24T09:59:59Z',undefined],['2026-12-24T10:00:00Z','Kiritimati'],
-    ['2026-12-24T18:15:00Z','Nepal'],['2026-12-26T11:59:59Z','Baker Island'],['2026-12-26T12:00:00Z',undefined]]) {
+    ['2026-12-24T18:15:00Z','Nepal'],['2026-12-25T10:59:59Z','Hawaii'],['2026-12-25T11:00:00Z',undefined]]) {
     const r=runtime({query:'?festive-overlay-test=1&festive-overlay-time='+time});
     assert.equal(r.snapshot().destination,expected);
     if(expected) assert.match(r.images[0],/\/media\/plg_system_festiveoverlay\/images\/sleigh.png$/);
+  }
+});
+
+test('the live sleigh stops at the cutoff while snow continues',()=>{
+  const r=runtime({hostname:'example.org',query:'',time:'2026-12-25T10:59:59Z'});
+  assert.equal(r.images.length,1);
+  r.clock('2026-12-25T11:00:00Z');
+  assert.equal(r.canvas().hidden,false);
+  assert.equal(r.frames.size,1);
+  const after=runtime({hostname:'example.org',query:'',time:'2026-12-25T11:00:00Z'});
+  assert.equal(after.images.length,0);
+});
+
+test('the current Santa zone preview stays in the flight window at any UTC hour',()=>{
+  for(const [time,expected] of [['2026-07-01T18:15:00Z','Nepal'],['2026-07-01T10:05:00Z','Kiritimati'],
+    ['2026-12-25T10:30:00Z','Hawaii']]) {
+    const r=runtime({time});
+    const presets=r.elements().find(el=>el.getAttribute('aria-label')==='Preview preset');
+    presets.value='Current Santa zone';
+    r.event(presets,'change');
+    assert.equal(r.snapshot().destination,expected);
+    r.animate(1);
+    assert.equal(r.snapshot().destination,expected);
   }
 });
 
@@ -134,6 +220,40 @@ test('New Year local-time window covers all of 1 January in Nepal',()=>{
     const r=runtime({config:{enabled:true,effect:'fireworks'},
       query:'?festive-overlay-test=1&festive-overlay-zone=Asia%2FKathmandu&festive-overlay-time='+time});
     assert.equal(r.snapshot().active,active);assert.equal(r.frames.size,active?1:0);
+  }
+});
+
+test('a two-hour New Year display ends at 02:00 in a fractional time zone',()=>{
+  for(const [time,active] of [['2026-12-31T18:14:59Z',false],['2026-12-31T18:15:00Z',true],
+    ['2026-12-31T20:14:59Z',true],['2026-12-31T20:15:00Z',false]]) {
+    const r=runtime({config:{enabled:true,effect:'fireworks',fireworks_hours:2},
+      query:'?festive-overlay-test=1&festive-overlay-zone=Asia%2FKathmandu&festive-overlay-time='+time});
+    assert.equal(r.snapshot().active,active);
+    assert.equal(r.frames.size,active?1:0);
+  }
+});
+
+test('an open page in Automatic mode stops the display at the configured hour',()=>{
+  const r=runtime({hostname:'example.org',query:'',time:new Date(2027,0,1,1,59,59).toISOString(),
+    config:{enabled:true,effect:'auto',fireworks_hours:2}});
+  assert.equal(r.canvas().hidden,false);
+  r.clock(new Date(2027,0,1,2).toISOString());
+  assert.equal(r.canvas().hidden,true);
+  assert.equal(r.frames.size,0);
+});
+
+test('a custom fireworks start date and duration use the same local clock in both modes',()=>{
+  for(const effect of ['auto','fireworks']) {
+    for(const [time,active] of [
+      ['2026-12-30T18:14:59Z',false], ['2026-12-30T18:15:00Z',true],
+      ['2026-12-30T20:14:59Z',true], ['2026-12-30T20:15:00Z',false],
+      ['2026-12-31T18:15:00Z',false],
+    ]) {
+      const r=runtime({config:{enabled:true,effect,fireworks_start:'12-31',fireworks_hours:2},
+        query:'?festive-overlay-test=1&festive-overlay-zone=Asia%2FKathmandu&festive-overlay-time='+time});
+      assert.equal(r.snapshot().active ?? false,active);
+      assert.deepEqual(r.warnings,[]);
+    }
   }
 });
 

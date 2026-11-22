@@ -38,13 +38,18 @@ final class FestiveOverlay extends CMSPlugin implements SubscriberInterface
 
         $base = Uri::root(true) . '/media/plg_system_festiveoverlay/';
         $effect = (string) $this->params->get('effect', 'auto');
+        $fireworksHours = filter_var($this->params->get('fireworks_hours', 24), FILTER_VALIDATE_INT, [
+            'options' => ['min_range' => 1, 'max_range' => 24],
+        ]);
         $palette = (string) $this->params->get('palette', 'auto');
         $position = (string) $this->params->get('position', 'above-walks');
         $document->addScriptOptions('plg_system_festiveoverlay', [
             'enabled' => true,
             'effect' => in_array($effect, ['auto', 'snow', 'fireworks'], true) ? $effect : 'auto',
+            'fireworks_start' => self::seasonDate((string) $this->params->get('fireworks_start', '01-01'), '01-01'),
+            'fireworks_hours' => $fireworksHours === false ? 24 : $fireworksHours,
             'season_start' => self::seasonDate((string) $this->params->get('season_start', '12-01'), '12-01'),
-            'season_end' => self::seasonDate((string) $this->params->get('season_end', '01-06'), '01-06'),
+            'season_end' => self::seasonDate((string) $this->params->get('season_end', '12-30'), '12-30'),
             'sleigh' => (bool) $this->params->get('sleigh', 1),
             'drone' => (bool) $this->params->get('drone', 1),
             'sound' => (bool) $this->params->get('sound', 1),

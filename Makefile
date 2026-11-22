@@ -4,7 +4,7 @@ NODE ?= node
 VENV := .venv
 DOC_PYTHON := $(VENV)/bin/python
 
-.PHONY: help setup check lint-php test test-js test-php package docs-assets docs docs-serve preview-mirror preview-serve
+.PHONY: help setup check lint-php test test-js test-php package docs-assets docs-demo-assets docs docs-serve preview-mirror preview-serve
 
 help:
 	@echo "setup        Create the documentation environment"
@@ -50,9 +50,13 @@ package:
 docs-assets:
 	$(VENV)/bin/prodockit shared-files --apply
 
-docs:
+docs-demo-assets:
+	mkdir -p docs/festive-demo
+	cp -R extension/media/. docs/festive-demo/
+
+docs: docs-demo-assets
 	$(VENV)/bin/prodockit shared-files --check
 	$(VENV)/bin/zensical build --clean --strict
 
-docs-serve:
+docs-serve: docs-demo-assets
 	$(VENV)/bin/zensical serve --dev-addr 127.0.0.1:8000

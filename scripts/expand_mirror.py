@@ -85,7 +85,7 @@ for page,soup in pages.items():
     csp['content']=m.preview_policy(soup)
     soup.head.insert(0,csp)
     options=soup.new_tag('script',attrs={'type':'application/json','class':'joomla-script-options new'})
-    options.string=json.dumps({'plg_system_festiveoverlay':{'enabled':True,'effect':'auto','season_start':'12-01','season_end':'01-06','sleigh':True,'drone':True,'sound':True,'palette':'auto','position':'above-walks'}})
+    options.string=json.dumps({'plg_system_festiveoverlay':{'enabled':True,'effect':'auto','season_start':'12-01','season_end':'12-30','sleigh':True,'drone':True,'sound':True,'palette':'auto','position':'above-walks'}})
     soup.head.insert(1,options)
     soup.head.append(soup.new_tag('link',rel='stylesheet',href='/media/plg_system_festiveoverlay/css/overlay.css'))
     soup.head.append(soup.new_tag('script',src='/media/plg_system_festiveoverlay/js/overlay.js',defer=True))

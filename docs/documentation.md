@@ -14,6 +14,10 @@ make docs-serve
 Open <http://127.0.0.1:8000> for the local preview. Press **Ctrl+C** to stop it.
 The static build is written to `site/`, which is ignored by Git.
 
+Both Make targets copy the Joomla overlay assets for the
+[festive effects test page](test-effects.md), so the page runs the shipped
+animation code.
+
 Edit pages in `docs/` and add navigation entries in `zensical.toml`. Write prose
 in British English and keep instructions consistent with the plugin's actual
 behaviour.

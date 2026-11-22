@@ -62,11 +62,27 @@ namespace {
         expect(!$doc->options && !$doc->assets->scripts && !$doc->assets->styles, 'Excluded page received assets');
     }
     expect(runPlugin(['enabled' => 1], html: false) instanceof \stdClass, 'Non-HTML response was changed');
+    foreach ([[null, '01-01'], ['12-31', '12-31'], ['02-29', '02-29'], ['02-30', '01-01']] as [$start, $expected]) {
+        $params = ['enabled' => 1];
+        if ($start !== null) {
+            $params['fireworks_start'] = $start;
+        }
+        $doc = runPlugin($params);
+        expect($doc->options['plg_system_festiveoverlay']['fireworks_start'] === $expected, 'Fireworks start date is incorrect');
+    }
+    foreach ([[null, 24], ['1', 1], ['2', 2], ['24', 24], ['0', 24], ['25', 24], ['2.5', 24]] as [$hours, $expected]) {
+        $params = ['enabled' => 1];
+        if ($hours !== null) {
+            $params['fireworks_hours'] = $hours;
+        }
+        $doc = runPlugin($params);
+        expect($doc->options['plg_system_festiveoverlay']['fireworks_hours'] === $expected, 'Fireworks duration is incorrect');
+    }
     $doc = runPlugin(['enabled' => 1, 'effect' => 'fireworks', 'sleigh' => '0', 'drone' => '0', 'sound' => '0',
         'season_start' => '02-30', 'season_end' => 'bad', 'palette' => 'wrong', 'position' => 'bottom-left']);
     $options = $doc->options['plg_system_festiveoverlay'];
     expect($options['enabled'] === true && $options['sleigh'] === false && $options['drone'] === false && $options['sound'] === false, 'JSON booleans are incorrect');
-    expect($options['season_start'] === '12-01' && $options['season_end'] === '01-06', 'Invalid dates did not fall back');
+    expect($options['season_start'] === '12-01' && $options['season_end'] === '12-30', 'Invalid dates did not fall back');
     expect($options['palette'] === 'auto' && $options['position'] === 'bottom-left', 'Appearance options are incorrect');
     expect($doc->assets->scripts[0][4] === ['core'], 'Joomla core dependency is missing');
     expect($doc->assets->scripts[0][1] === '/joomla-subdirectory/media/plg_system_festiveoverlay/js/overlay.js', 'Subdirectory URL is incorrect');

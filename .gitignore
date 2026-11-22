@@ -14,3 +14,4 @@ node_modules/
 *.log
 .local-site/
 .test-output/
+/docs/festive-demo/

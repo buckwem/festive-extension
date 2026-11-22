@@ -13,6 +13,7 @@ nav = [
   { "Overview" = "index.md" },
   { "Installation" = "installation.md" },
   { "Configuration" = "configuration.md" },
+  { "Test festive effects" = "test-effects.md" },
   { "Development" = "development.md" },
   { "Documentation" = "documentation.md" },
   { "Roadmap" = "roadmap.md" },

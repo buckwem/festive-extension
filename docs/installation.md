@@ -87,7 +87,7 @@ make package
 ```
 
 Packaging uses Python's standard library and doesn't require the documentation
-dependencies. It creates `dist/plg_system_festiveoverlay-0.1.0-beta2.zip` from the
+dependencies. It creates `dist/plg_system_festiveoverlay-0.1.0-beta3.zip` from the
 files declared in `extension/festiveoverlay.xml`.
 
 ### Install in Joomla
