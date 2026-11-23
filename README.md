@@ -26,7 +26,7 @@ and upload it through the extension installer on a development Joomla site.
 ## Try the effects
 
 Use the [hosted test page](https://buckwem.github.io/festive-extension/test-effects/)
-or follow the [local ZIP testing guide](docs/documentation.md) to preview the
+or follow the [maintainer preview instructions](docs/maintaining.md#preview-a-released-installer) to preview the
 assets from your downloaded installer with Zensical. The same
 [test URL parameters](docs/test-effects.md) work on a public Joomla page where
 the plugin and festive effects are enabled.

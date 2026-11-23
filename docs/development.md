@@ -2,7 +2,7 @@
 
 For source validation, packaging, documentation builds and release steps, see
 the [maintainer guide](maintaining.md). To try the released plugin, use the
-[ZIP testing guide](documentation.md).
+[installation instructions](installation.md).
 
 ## Extension structure
 
@@ -67,7 +67,7 @@ except for the original WeatherWidget.io forecast, which needs an internet conne
 It does not include the Joomla database or an administrator session. Dynamic
 walk/map functions therefore need a separate Joomla staging environment.
 
-Use the [preview parameters](configuration.md#local-previews) to exercise
+Use the [preview parameters](#developer-previews) to exercise
 Christmas and New Year. After editing extension media, copy it into the mirror
 or rebuild the mirror, then reload the browser. Screenshots belong in ignored
 `.test-output/`, outside the extension archive and public source history.
@@ -80,6 +80,24 @@ the public site’s typography. Two existing Font Awesome v4 compatibility font 
 returned 404; other downloaded fonts remained available. The initial browser
 checks covered desktop/mobile layout, navigation, snow pause/hide, saved
 preferences, artwork transparency and controls above the walks heading.
+
+## Developer previews
+
+For local browser testing of a release ZIP, see the
+[maintainer instructions](maintaining.md#preview-a-released-installer).
+
+On `localhost`, `127.0.0.1` or `[::1]`, append these query parameters:
+
+```text
+?festive-overlay-test=1&festive-overlay-time=2026-12-24T10:00:00Z&festive-overlay-speed=0
+```
+
+The preview panel can step the simulation, change time and exercise presets.
+Use `festive-overlay-panel=0` to hide that panel and see the normal visitor
+controls. `festive-overlay-effect=fireworks` previews New Year; use a time such
+as `2027-01-01T00:30:00Z` and `festive-overlay-zone=Europe/London`.
+These developer preview parameters and the preview panel are available only
+on loopback addresses. The public effect tests use the ordinary visitor controls.
 
 ## Upstream references
 

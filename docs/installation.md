@@ -92,9 +92,8 @@ The screenshot shows the plugin enabled with **Enable festive effects** set to
 
 Set **Enable festive effects** to **Yes** and choose the effect and control
 position, then click **Save & Close**. The default puts the icons above **Our Next Walks**. Effects follow
-their seasonal dates; use the [local preview](configuration.md#local-previews)
-to test outside those dates. Use the [ZIP testing guide](documentation.md) for a
-local browser preview.
+their seasonal dates; use the [public effect tests](test-effects.md#test-a-joomla-page)
+to test your installed plugin outside those dates.
 
 ### Update or uninstall
 

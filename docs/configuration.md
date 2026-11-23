@@ -64,18 +64,3 @@ normalised. Changing the heading text makes the plugin use its corner fallback.
 Use the [festive effects test page](test-effects.md) to try each effect at any
 time of year. The same URL parameters work on public Joomla pages with
 Festive Overlay enabled.
-
-## Local previews
-
-On `localhost`, `127.0.0.1` or `[::1]`, append these query parameters:
-
-```text
-?festive-overlay-test=1&festive-overlay-time=2026-12-24T10:00:00Z&festive-overlay-speed=0
-```
-
-The preview panel can step the simulation, change time and exercise presets.
-Use `festive-overlay-panel=0` to hide that panel and see the normal visitor
-controls. `festive-overlay-effect=fireworks` previews New Year; use a time such
-as `2027-01-01T00:30:00Z` and `festive-overlay-zone=Europe/London`.
-These developer preview parameters and the preview panel are available only
-on loopback addresses. The public effect tests use the ordinary visitor controls.

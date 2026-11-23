@@ -1,11 +1,13 @@
 # Building and releasing
 
 These instructions are for maintainers changing the source or publishing a
-release. To try the extension, use the [downloaded ZIP testing guide](documentation.md)
-and [Joomla installation instructions](installation.md).
+release. Installers should follow the [Joomla installation instructions](installation.md),
+[configuration guide](configuration.md) and [effect tests](test-effects.md).
 
 ## Prepare the tools
 
+Use a checkout of this repository, or extract the
+[documentation source](https://github.com/buckwem/festive-extension/archive/refs/heads/main.zip).
 Use Python 3.13, Node.js 22 or later and PHP 8.3 or later. From the repository root:
 
 ```sh
@@ -16,7 +18,8 @@ python -m pip install -r requirements-docs.txt
 
 On Windows PowerShell, activate with `.\.venv\Scripts\Activate.ps1`.
 Packaging itself uses Python's standard library and requires Python 3.11 or later.
-Joomla and PHP are installed separately.
+Joomla and PHP are installed separately. The pinned documentation tools are
+Zensical 0.1.3 and Prodockit 0.81.0 in `requirements-docs.txt`.
 
 ## Validate and build the installer ZIP
 
@@ -54,6 +57,38 @@ zensical serve --dev-addr 127.0.0.1:8000
 
 Open <http://127.0.0.1:8000>. Press **Ctrl+C** to stop the server before a clean
 build. Edit pages in `docs/` and navigation in `zensical.toml`.
+
+### Preview a released installer
+
+To check the browser assets in a published release, download the installer ZIP
+from the [release assets](https://github.com/buckwem/festive-extension/releases/tag/v0.1.0-beta4).
+Choose `plg_system_festiveoverlay-0.1.0-beta4.zip`, rather than GitHub's
+**Source code** archives. With the documentation environment active, run:
+
+```sh
+python scripts/prepare_demo.py ~/Downloads/plg_system_festiveoverlay-0.1.0-beta4.zip
+zensical serve --dev-addr 127.0.0.1:8000
+```
+
+On Windows PowerShell, use the saved ZIP's path:
+
+```powershell
+python scripts/prepare_demo.py "$HOME/Downloads/plg_system_festiveoverlay-0.1.0-beta4.zip"
+zensical serve --dev-addr 127.0.0.1:8000
+```
+
+The preparation command validates the manifest and extracts only `media/` into
+`docs/festive-demo/`. Run it again to test a different ZIP. Generated assets are
+ignored by Git.
+
+Open <http://127.0.0.1:8000/test-effects/> and select an effect. Check pause,
+hide, reduced motion and light/dark appearance. Fireworks start muted; use their
+sound control to enable sound. Press **Ctrl+C** to stop the server.
+
+This preview checks the ZIP's browser assets. Installation, saved settings and
+Joomla integration need testing on a Joomla site. The hosted demonstration uses
+the workflow's built ZIP, which may be newer than the published beta; use the
+downloaded release ZIP when checking a release.
 
 ## Publish a release
 

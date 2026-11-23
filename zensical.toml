@@ -11,10 +11,11 @@ edit_uri = "edit/main/docs/"
 site_url = "https://buckwem.github.io/festive-extension/"
 nav = [
   { "Overview" = "index.md" },
-  { "Installation" = "installation.md" },
-  { "Configuration" = "configuration.md" },
-  { "Test festive effects" = "test-effects.md" },
-  { "Local ZIP testing" = "documentation.md" },
+  { "Installers" = [
+    { "Installation" = "installation.md" },
+    { "Configuration" = "configuration.md" },
+    { "Test festive effects" = "test-effects.md" },
+  ] },
   { "Maintainers" = [
     { "Building and releasing" = "maintaining.md" },
     { "Development" = "development.md" },

@@ -24,13 +24,10 @@ The plugin loads assets only on public HTML pages when enabled. Visitors can
 turn effects off or pause them; reduced motion starts paused and sound starts
 muted. Decorations do not intercept links or other pointer interaction.
 
-| Software | Development target or pinned build dependency |
+| Software | Development target |
 | --- | --- |
 | Joomla | 5.4 and 6.x |
 | PHP | 8.3 or later |
-| Documentation Python | 3.13 |
-| Zensical | 0.1.3 |
-| Prodockit | 0.81.0 |
 
 See [development](development.md) for the local website preview and
 [Building and releasing](maintaining.md) for validation and release checks.

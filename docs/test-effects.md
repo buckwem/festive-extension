@@ -18,9 +18,8 @@ Use the controls to pause or hide the effect. If reduced motion is enabled,
 choose **Resume** to start it. Fireworks start muted. [Clear the test](?)
 to return to this page without an effect.
 
-For a local preview using a downloaded installer, follow the
-[ZIP testing guide](documentation.md). The hosted demonstration uses the ZIP
-produced by the documentation workflow, which may be newer than the released beta.
+This demonstration may include changes newer than the released beta. Use the
+instructions below to test the version installed on your Joomla site.
 
 ## Test a Joomla page
 
