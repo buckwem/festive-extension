@@ -1,7 +1,8 @@
 # Configuration
 
 Open **System → Manage → Plugins → System - Festive Overlay**. Enable both
-the plugin status and **Enable festive effects**, then save your settings.
+the plugin status and **Enable festive effects**, then save your settings. The
+[installation guide includes an example settings screenshot](installation.md#install-in-joomla).
 
 | Setting | Default | Behaviour |
 | --- | --- | --- |

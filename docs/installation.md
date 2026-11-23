@@ -86,6 +86,12 @@ page layout, choose **Bottom left** or **Bottom right** under **Visitor controls
 position**, then click **Save & Close**. Leave **Access** set to **Public** if
 all visitors should receive the effects.
 
+The example below shows the enabled plugin and its seasonal settings.
+
+[![Example Festive Overlay settings in Joomla 5.4.10, showing Status Enabled, Access Public, Enable festive effects Yes and automatic Christmas and New Year effects.](images/festive-overlay-settings-example.png)](images/festive-overlay-settings-example.png)
+
+*Example plugin settings with a generic site name. Select the screenshot to view it at full size.*
+
 The default **Above Our Next Walks** option looks for a heading with that exact
 text and uses the bottom-right corner if it is absent. See the
 [configuration guide](configuration.md#visitor-controls) for the available controls.
