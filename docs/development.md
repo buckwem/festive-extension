@@ -42,44 +42,25 @@ timers, canvas and controls. Controls are inserted above the Our Next Walks
 heading where available, or placed in a fixed corner.
 
 Palette detection observes theme attributes on the HTML and body elements, so
-paused effects also update when a visitor changes themes. The separate Alton
-dark-mode prototype was checked with snow and fireworks, smaller controls,
-navigation, pause/resume and theme switching on desktop and mobile. Its CSS and
-light/dark switch are not included in this plugin.
+paused effects also update when a visitor changes themes. Test snow, fireworks,
+navigation, pause/resume and theme switching on desktop and mobile with your
+chosen template. The plugin does not provide a site-wide light/dark switch.
 
 Keep the managed documentation assets unchanged. The ported runtime in
 `extension/media/` is maintained separately; upstream changes need review and
 behaviour checks before being applied. The installable ZIP includes the MIT
 and CC0 attribution in `THIRD_PARTY_NOTICES.txt`.
 
-## Local Alton Ramblers preview
+## Joomla staging tests
 
-```sh
-python scripts/expand_mirror.py
-python -m http.server 8765 --bind 127.0.0.1 --directory .local-site
-```
+Use a staging copy of the target Joomla site with its actual template, modules
+and database. Check navigation, forms, interactive components and effect controls
+on desktop and mobile, in both light and dark appearances where supported.
+A static browser preview cannot exercise Joomla settings or server-side modules.
 
-The mirror follows public menu and article links, with a 500-page safeguard.
-It currently copies 162 public pages and their assets into ignored `.local-site/`.
-Open `/local-pages.html` on the local server for a complete page index. It injects the extension's options and media
-for visual testing. It blocks live API requests, embeds and form submissions,
-except for the original WeatherWidget.io forecast, which needs an internet connection.
-It does not include the Joomla database or an administrator session. Dynamic
-walk/map functions therefore need a separate Joomla staging environment.
-
-Use the [preview parameters](#developer-previews) to exercise
-Christmas and New Year. After editing extension media, copy it into the mirror
-or rebuild the mirror, then reload the browser. Screenshots belong in ignored
-`.test-output/`, outside the extension archive and public source history.
-
-On 21 November 2026 the source site's administrator displayed Joomla 5.4.10,
-and the public pages used Gantry 5 Hydrogen. The initial local snapshot copied three
-pages and 140 assets. A subsequent correction cached extensionless Google Fonts
-stylesheets as CSS and downloaded the seven Assistant font files, preserving
-the public site’s typography. Two existing Font Awesome v4 compatibility font URLs
-returned 404; other downloaded fonts remained available. The initial browser
-checks covered desktop/mobile layout, navigation, snow pause/hide, saved
-preferences, artwork transparency and controls above the walks heading.
+Keep credentials, database exports and site-specific snapshots outside the public
+repository and the installer ZIP. Store local screenshots in ignored
+`.test-output/`.
 
 ## Developer previews
 

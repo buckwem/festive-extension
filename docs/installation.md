@@ -7,8 +7,8 @@ own database and server requirements also apply.
 ## Recommended prerequisite: RA Dark Theme
 
 [RA Dark Theme](https://github.com/buckwem/ra-dark-theme) provides a light/dark
-switch for Ramblers websites. Its standalone **Gantry template** includes the
-Ramblers layout and the theme controls. Install and check it before adding
+switch through a standalone **Gantry template**. Review its supplied layout
+and adapt it to your site before activation. Install and check it before adding
 Festive Overlay if you want visitors to be able to choose either appearance.
 
 Dark mode is optional: Festive Overlay works in light mode too. You can leave
@@ -17,7 +17,7 @@ The two extensions have separate installers and settings.
 
 ### Install the Gantry template
 
-1. Back up the site and keep Hydrogen installed for rollback. Preview the beta
+1. Back up the site and keep your existing template installed for rollback. Preview the beta
    on a staging copy before applying it to a public site.
 2. Download `tpl_ra_darktheme-0.2.0-beta4.zip` from the
    [RA Dark Theme release](https://github.com/buckwem/ra-dark-theme/releases/tag/v0.2.0-beta4).
@@ -25,11 +25,11 @@ The two extensions have separate installers and settings.
    template ZIP. Use Joomla's installer, rather than Gantry's Import control.
 4. Open **Components → Gantry 5 Themes → Available Themes**, then open
    **RA Dark Theme**. Confirm that the version shown is **0.2.0-beta4** or later.
-5. Review the Ramblers layout and preview the template. A template preview does
+5. Review the supplied layout and preview the template. A template preview does
    not activate it on the normal public URLs.
 
-The package includes the supplied Ramblers template customisations. Other sites
-should review and adapt the layout on staging.
+Review template layouts, module positions, branding and navigation on staging
+before applying the template to a public site.
 
 ### Choose the default appearance
 
@@ -48,24 +48,22 @@ clearing Joomla's cache does not clear browser preferences.
 1. Open **System → Templates → Site Template Styles**.
 2. Make **RA Dark Theme – Default** the default using its star or the **Default**
    toolbar button.
-3. Review the existing menu items under **Menus → Main Menu**. Open each item
-   that explicitly selects Hydrogen, and under **Details** change
+3. Review the existing menu items under **Menus**. Open each item
+   that explicitly selects another template, and under **Details** change
    **Template Style** to **Use Default**, then **Save & Close**.
-4. Check the normal public URLs for Home, News, Contacts, Gallery and the walks
-   pages, including mobile navigation, the calendar and weather.
+4. Check a representative selection of public pages, including navigation,
+   forms and any interactive modules on desktop and mobile.
 
-Existing menu assignments override the site-wide default. Changing Home alone
-will not change Gallery or the other explicitly assigned menu pages. On Alton
-Ramblers, setting each affected menu item's **Template Style → Use Default**
-was the verified route. Do not rely on clearing or selecting all Gantry
-assignments as a replacement for checking those Joomla menu settings.
+Existing menu assignments override the site-wide default. Review each menu
+item that should follow the new default and set its **Template Style** to
+**Use Default**. Keep explicit assignments where a different template is intended.
 
 In Gantry's **Assignments** screen, the default-template dropdown must remain
-**All Languages** for a general site default. **English (UK)** is a language-specific
+**All Languages** for a general site default. A named language creates a language-specific
 default; it is separate from both the page-assignment checkboxes and the
 light/dark appearance setting.
 
-Keep Hydrogen available to restore the previous template style and menu
+Keep your previous template available to restore the previous template style and menu
 assignments if testing exposes a problem. Then install Festive Overlay below
 and check its effects in both appearances. These are beta packages; update and
 removal behaviour still require staging checks.
@@ -83,17 +81,18 @@ from the release assets. [Festive Overlay beta4 release](https://github.com/buck
 4. Open **System → Manage → Plugins** and find **System - Festive Overlay**.
 5. Enable the plugin. Its separate **Enable festive effects** setting starts at **No**.
 
-The screenshot shows the plugin enabled with **Enable festive effects** set to
-**Yes**, automatic seasonal effects and controls above **Our Next Walks**.
+Set **Enable festive effects** to **Yes**. For controls that work with any
+page layout, choose **Bottom left** or **Bottom right** under **Visitor controls
+position**, then click **Save & Close**. Leave **Access** set to **Public** if
+all visitors should receive the effects.
 
-[![Festive Overlay settings in Joomla 5.4.10: Status Enabled, Enable festive effects Yes, automatic Christmas and New Year effects, snow from 12-01 to 12-30, fireworks on 01-01 for 24 hours, and controls above Our Next Walks.](images/festive-overlay-joomla-settings.png)](images/festive-overlay-joomla-settings.png)
+The default **Above Our Next Walks** option looks for a heading with that exact
+text and uses the bottom-right corner if it is absent. See the
+[configuration guide](configuration.md#visitor-controls) for the available controls.
 
-*Festive Overlay configuration on Alton Ramblers. Select the screenshot to view it at full size.*
-
-Set **Enable festive effects** to **Yes** and choose the effect and control
-position, then click **Save & Close**. The default puts the icons above **Our Next Walks**. Effects follow
-their seasonal dates; use the [public effect tests](test-effects.md#test-a-joomla-page)
-to test your installed plugin outside those dates.
+Effects follow their seasonal dates; use the
+[public effect tests](test-effects.md#test-a-joomla-page) to test your installed
+plugin outside those dates.
 
 ### Update or uninstall
 

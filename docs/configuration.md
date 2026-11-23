@@ -1,8 +1,7 @@
 # Configuration
 
-Open **System → Manage → Plugins → System - Festive Overlay**. See the
-[settings screenshot in the installation instructions](installation.md#install-in-joomla)
-for an example of the enabled plugin.
+Open **System → Manage → Plugins → System - Festive Overlay**. Enable both
+the plugin status and **Enable festive effects**, then save your settings.
 
 | Setting | Default | Behaviour |
 | --- | --- | --- |
@@ -55,9 +54,13 @@ Reduced motion starts the animation paused. Hidden
 tabs and printing suspend animation. The decorative canvas ignores pointer
 events and is hidden from assistive technology.
 
-The controls appear only during the relevant effect's active dates. The
-heading match is `Our Next Walks`, with surrounding and repeated whitespace
-normalised. Changing the heading text makes the plugin use its corner fallback.
+Choose **Bottom left** or **Bottom right** for controls in a fixed corner on
+any page. The default **Above Our Next Walks** option matches the heading text
+`Our Next Walks`, with surrounding and repeated whitespace normalised. If that
+heading is absent, the controls appear in the bottom-right corner.
+
+The controls appear only during the relevant effect's active dates or when a
+public effect test is selected.
 
 ## Public effect tests
 

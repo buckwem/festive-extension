@@ -7,10 +7,10 @@ Read the [published documentation](https://buckwem.github.io/festive-extension/)
 
 **Status: beta, version 0.1.0-beta4.** Ports Prodockit's Christmas snow, sleigh,
 New Year fireworks and drone displays to Joomla. The sleigh carries walking
-boots with red and gold bows. Visitor controls sit above **Our Next Walks**, with
-a corner fallback on pages without that heading. Effects are opt-in and seasonal.
+boots with red and gold bows. Visitor controls can sit in a fixed corner or
+above a matching heading. Effects are opt-in and seasonal.
 
-The site maintainer confirmed beta4 working on Alton Ramblers (Joomla 5.4.10).
+Beta4 has been confirmed working on Joomla 5.4.10.
 Joomla 6 installation, updates and removal still need integration testing before
 a production release.
 
@@ -42,7 +42,8 @@ UTC, and the sleigh flies from 10:00 UTC on 24 December to 11:00 UTC on
 
 Install and configure [RA Dark Theme](https://github.com/buckwem/ra-dark-theme)
 if you want visitors to choose light or dark appearance. The Gantry template
-includes the Ramblers layout and theme switch. Follow the
+includes a supplied layout and theme switch; review and adapt the layout to
+your site before activation. Follow the
 [installation guide](docs/installation.md#recommended-prerequisite-ra-dark-theme)
 for template installation, appearance settings and Joomla menu assignments.
 
@@ -54,8 +55,7 @@ separate installers and settings. Check the seasonal effects in both modes.
 
 Source builds, validation, documentation builds and publishing are described in
 [Building and releasing](docs/maintaining.md). The
-[development guide](docs/development.md) covers the plugin structure and local
-website mirror.
+[development guide](docs/development.md) covers the plugin structure and staging tests.
 
 ## Repository layout
 

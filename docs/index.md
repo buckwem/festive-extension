@@ -12,13 +12,13 @@ walking boots with bows, fireworks and drone displays.
 !!! tip "Recommended prerequisite"
     Install [RA Dark Theme](https://github.com/buckwem/ra-dark-theme)
     using the [template installation steps](installation.md#install-the-gantry-template)
-    on Ramblers sites. It provides an optional dark
+    if its Gantry template suits your site. It provides an optional dark
     background for the seasonal effects. Festive Overlay also works independently
     on light pages. See the [recommended installation order](installation.md#recommended-prerequisite-ra-dark-theme).
 
 Start with [installation](installation.md), then [configure the effects and
-visitor controls](configuration.md). The default control position is directly
-above **Our Next Walks**, with a corner fallback on other pages.
+visitor controls](configuration.md). Fixed bottom-left and bottom-right controls
+work with any page layout; heading-based placement is also available.
 
 The plugin loads assets only on public HTML pages when enabled. Visitors can
 turn effects off or pause them; reduced motion starts paused and sound starts
@@ -29,5 +29,5 @@ muted. Decorations do not intercept links or other pointer interaction.
 | Joomla | 5.4 and 6.x |
 | PHP | 8.3 or later |
 
-See [development](development.md) for the local website preview and
+See [development](development.md) for Joomla staging guidance and
 [Building and releasing](maintaining.md) for validation and release checks.
